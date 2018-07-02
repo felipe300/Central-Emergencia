@@ -1,0 +1,28 @@
+<h2>Lista de Cuarteles</h2>
+
+<ul>
+  <li class="text" *ngFor="let cuartel of items | async">
+    {{cuartel.nombre_compania}}
+  </li>
+  <li class="text" *ngFor="let cuartel of items | async">
+    {{cuartel.n_compania}}
+  </li>
+  <li class="text" *ngFor="let cuartel of items | async">
+    {{cuartel.direccion}}
+  </li>
+  <li class="text" *ngFor="let cuartel of items | async">
+    {{cuartel.capitan}}
+  </li>
+  <li class="text" *ngFor="let cuartel of items | async">
+      {{cuartel.maquina}}
+  </li>
+  <li class="text" *ngFor="let cuartel of items | async">
+      {{cuartel.maquina[0]}}
+  </li>
+  <li class="text" *ngFor="let cuartel of items | async">
+      {{cuartel.maquina[1]}}
+  </li>
+  <li class="text" *ngFor="let cuartel of items | async">
+      {{cuartel.maquina[2]}}
+  </li>
+</ul>

@@ -1,0 +1,21 @@
+<form (ngSubmit)="agregarEmergencia()" class="mt-5">
+  <input type="text" placeholder="Tipo de Emergencia" name="tipo_emergencia"
+  class="form-control mt-2" [(ngModel)]="emerg.tipo_emergencia"
+  >
+  <input type="text" placeholder="Sector" name="sector"
+  class="form-control mt-2" [(ngModel)]="emerg.sector"
+  >
+  <input type="text" placeholder="Calle" name="calle"
+  class="form-control mt-2" [(ngModel)]="emerg.calle"
+  >
+  <input type="text" placeholder="Punto de Referencia" name="punto_referencia"
+  class="form-control mt-2" [(ngModel)]="emerg.punto_referencia"
+  >
+  <input type="text" placeholder="Nombre Denunciante" name="denunciante"
+  class="form-control mt-2" [(ngModel)]="emerg.denunciante"
+  >
+  <input type="text" placeholder="Telefono" name="telefono"
+  class="form-control mt-2" [(ngModel)]="emerg.telefono"
+  >
+  <button class="btn btn-warning mt-3" type="submit">Agregar</button>
+</form>
