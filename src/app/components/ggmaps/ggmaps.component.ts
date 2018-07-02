@@ -31,7 +31,7 @@ export class GgmapsComponent implements OnInit {
   lat = -41.46277329621284;
   lng = -72.93061226606369;
   zoom = 18;
-  locationChosen = false;
+  locationChosen = true;
   place_address = 0;
 
   google: any;
