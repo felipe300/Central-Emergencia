@@ -36,7 +36,6 @@ export class GgmapsComponent implements OnInit {
 
   google: any;
 
-
   ngOnInit() {
     this.mapsAPILoader.load().then(
       () => {

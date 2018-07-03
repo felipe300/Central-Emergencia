@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 @Component({
   selector: 'app-maquinas',
@@ -7,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaquinasComponent implements OnInit {
 
-  constructor() { }
+  maquinas: Observable<any[]>;
+  estado_maquinas: Observable<any[]>;
+  constructor(db: AngularFirestore) {
+    this.maquinas = db.collection('maquina').valueChanges();
+    this.estado_maquinas = db.collection('estado_maquina').valueChanges();
+  }
 
   ngOnInit() {
   }

@@ -1,4 +1,21 @@
-<p>
-  maquinas works!
-</p>
-<h2>Sobre la Institución</h2>
+<h2>Lista de Máquinas</h2>
+
+<div class="text" *ngFor="let maquina of maquinas | async">
+  <ul>
+    <li>{{maquina.chofer}}</li>
+    <li>{{maquina.cuartel}}</li>
+    <li>{{maquina.n_chasis}}</li>
+    <li>{{maquina.n_patente}}</li>
+    <li>{{maquina.tipo}}</li>
+    <li>
+      <!-- Estados -->
+      <select *ngFor="let e_maq of estado_maquinas | async">
+        <option></option>
+        <option >{{e_maq.estado[0]}}</option>
+        <option >{{e_maq.estado[1]}}</option>
+        <option >{{e_maq.estado[2]}}</option>
+        <option >{{e_maq.estado[3]}}</option>
+      </select>
+    </li>
+  </ul>
+</div>
