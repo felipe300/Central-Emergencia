@@ -1,15 +1,10 @@
-<div class="bg-dark text-white py-3">
-  <p>
-    header works!
-  </p>
-</div>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
   <a class="navbar-brand" href="#">Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
+<!-- Navbar -->
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
@@ -18,22 +13,22 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/ggmaps']">Emergencias</a>
+        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/ggmaps']">Emergencias</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/emergencias']">Lista de Emergencias</a>
+        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/emergencias']">Lista de Emergencias</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/cuarteles']">Lista Cuarteles</a>
+        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/cuarteles']">Lista Cuarteles</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/maquinas']">Lista de Máquinas</a>
+        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/maquinas']">Lista de Máquinas</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/contact']">Contactos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link disabled" [routerLink]="">Disabled</a>
+        <a class="nav-link " *ngIf="isLogin" (click)="onClicklogOut()">Cerrar Session</a>
       </li>
     </ul>
   </div>

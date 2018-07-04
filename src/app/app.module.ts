@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
+import { FlashMessagesModule } from 'angular2-flash-messages';
 
 import { FormsModule } from '@angular/forms';
 
@@ -28,16 +29,17 @@ import { ListaEmergenciaAddComponent } from './components/lista-emergencia-add/l
 import { EmergenciasComponent } from './components/emergencias/emergencias.component';
 import { MaquinasComponent } from './components/maquinas/maquinas.component';
 import { CuartelesComponent } from './components/cuarteles/cuarteles.component';
+import { AuthGuard } from './guard/auth.guard';
 
 // Routes
 const routes: Routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'ggmaps', component: GgmapsComponent },
-  { path: 'emergencias', component: ListaEmergenciaComponent },
-  { path: 'maquinas', component: MaquinasComponent },
-  { path: 'cuarteles', component: CuartelesComponent },
+  { path: 'ggmaps', component: GgmapsComponent, canActivate: [AuthGuard] },
+  { path: 'emergencias', component: ListaEmergenciaComponent, canActivate: [AuthGuard] },
+  { path: 'maquinas', component: MaquinasComponent, canActivate: [AuthGuard] },
+  { path: 'cuarteles', component: CuartelesComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 
 ];
@@ -62,6 +64,7 @@ const routes: Routes = [
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
+    FlashMessagesModule.forRoot(),
     RouterModule.forRoot(routes),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyBIHrtwmCKamw5FzIAnZV1OBfwgEWiWVwg',

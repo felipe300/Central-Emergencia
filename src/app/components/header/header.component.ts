@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+//
+import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  public isLogin: boolean;
+  public nombreUsuario: string;
+  public emailUsuario: string;
+
+  constructor(
+    public authService: AuthService
+  ) {   }
 
   ngOnInit() {
+    this.authService.getAuth().subscribe(auth => {
+      if (auth) {
+        this.isLogin = true;
+        this.nombreUsuario = auth.displayName;
+        this.emailUsuario = auth.email;
+      } else {
+        this.isLogin = false;
+      }
+      console.log(this.isLogin);
+    });
+  }
+
+  onClicklogOut() {
+    this.authService.logOut();
   }
 
 }
