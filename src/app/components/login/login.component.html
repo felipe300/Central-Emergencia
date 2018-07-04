@@ -27,8 +27,11 @@
   <form class="form-signin" (submit)="ingresarAplicacion()" autocomplete="off">
     <img class="mb-4" src="../../../assets/logo.png" alt="logo" width="150" height="100">
     <h1 class="h3 mb-3 font-weight-normal">Inicio de Sesion</h1>
+
     <label for="email" class="sr-only">Correo Electronico</label>
     <input type="email" name="email" id="email" class="form-control" [(ngModel)]="email" placeholder="Correo Electronico" required autofocus>
+    <small id="emailHelp" class="form-text mb-3 text-muted">Nunca compartas tu Correo con otros.</small>
+
     <label for="password" class="sr-only">Contraseña</label>
     <input type="password" name="password" id="password" [(ngModel)]="password" class="form-control" placeholder="Contraseña" required>
     <div class="checkbox mb-3">
