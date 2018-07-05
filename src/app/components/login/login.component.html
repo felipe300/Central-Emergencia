@@ -1,47 +1,28 @@
-<!--<div class="card col-md-6 mx-auto mt-5">
-  <form class="form-signin text-center mt-3" (click)="onSubmitLogin()">
-        
-    <! Correo -
-    <label for="email" class="sr-only">Correo Electrónico</label>
-    <input type="email" name="email" id="email" [(ngModel)]="email" class="form-control" placeholder="Correo Electrónico" required autofocus>
-    <small id="emailHelp" class="form-text mb-3 text-muted">Nunca compartas tu Correo con otros.</small>
-      
-    <! Pass
-    <label for="password" class="sr-only">Contraseña</label>
-    <input type="password" name="passowrd" id="password" class="form-control" [(ngModel)]="name" placeholder="Contraseña" required>
-    <small id="emailHelp" class="form-text mb-3 text-muted">Nunca compartas tu Contraseña con otros.</small>
-    
-    <! Recordarme 
-    <div class="checkbox mb-3">
-      <label>
-        <input type="checkbox" value="remember-me"> Recordarme
-      </label>
-    </div>
-    
-    <! Iniciar  Evento click malo
-    <input type="submit" value="Ingresar" class="btn btn-lg btn-primary btn-block" >
-    <p class="mt-3 mb-2 text-muted">&copy; 2018-2020</p>
-  </form>
-</div>-->
+<!-- LogIn + Logo -->
 <body class="card col-md-6 mx-auto mt-5 text-center">
   <form class="form-signin" (submit)="ingresarAplicacion()" autocomplete="off">
     <img class="mb-4" src="../../../assets/logo.png" alt="logo" width="150" height="100">
     <h1 class="h3 mb-3 font-weight-normal">Inicio de Sesion</h1>
 
+    <!-- Correo -->
     <label for="email" class="sr-only">Correo Electronico</label>
     <input type="email" name="email" id="email" class="form-control" [(ngModel)]="email" placeholder="Correo Electronico" required autofocus>
     <small id="emailHelp" class="form-text mb-3 text-muted">Nunca compartas tu Correo con otros.</small>
 
+    <!-- Pass -->
     <label for="password" class="sr-only">Contraseña</label>
     <input type="password" name="password" id="password" [(ngModel)]="password" class="form-control" placeholder="Contraseña" required>
     <small id="passHelp" class="form-text mb-3 text-muted">Nunca compartas tu Email con otros.</small>
+    
+    <!-- Recordarme-->
     <div class="checkbox mb-3">
       <label>
         <input type="checkbox" value="remember-me"> Recordarme
       </label>
     </div>
+    
+    <!-- Iniciar  Evento -->
     <input type="submit" value="Enviar" class="btn btn-primary btn-block btn-lg">
-    <p class="mt-5 mb-3 text-muted">&copy; 2018-2020</p>
   </form>
 </body>
 
