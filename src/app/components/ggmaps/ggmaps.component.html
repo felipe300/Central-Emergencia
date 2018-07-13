@@ -17,7 +17,7 @@
   <div class="col-md-4">
     <!-- Map -->
     <div class="map mt-3 float-right">
-      <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChoseLocation($event)"
+      <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChoseLocation($event)" (mapReady)="addMarker($event)"
         [zoom]="zoom" [disableDefaultUI]="true" [streetViewControl]="false">
           <agm-marker [latitude]="lat" [longitude]="lng" [iconUrl]="'.././assets/firemen.png'" *ngIf="locationChosen"></agm-marker>
       </agm-map>

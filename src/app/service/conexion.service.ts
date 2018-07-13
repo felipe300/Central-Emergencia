@@ -43,7 +43,7 @@ export class ConexionService {
     this.itemsCollection.add(emerg);
   }
 
-  //
+  // eliminar
   eliminarEmg(emg) {
     console.log(emg);
     this.itemDoc = this.afs.doc<Item>(`emergencia/${emg.id}`);

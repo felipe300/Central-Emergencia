@@ -65,7 +65,7 @@ export class GgmapsComponent implements OnInit {
     this.locationChosen = true;
   }
 
-  addMarker($event) {
+  addMarker() {
     console.log('addedmarker');
   }
 
