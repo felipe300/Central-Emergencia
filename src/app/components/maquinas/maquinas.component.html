@@ -1,56 +1,21 @@
-<h2 class="mt-5">Lista de Máquinas</h2>
+<div class="mt-5">
+  <app-lista-maquina></app-lista-maquina>
+</div>
+<div class="mt-5">
+  <app-add-maquina></app-add-maquina>  
+</div>
 
-<div class="text mt-3" *ngFor="let maquina of maquinas">
-  <table class="table">
-    <thead>
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">Tipo de Máquina</th>
-        <th scope="col">Cuartel</th>
-        <th scope="col">Chofer</th>
-        <th scope="col">Número de Chasis</th>
-        <th scope="col">Patente</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Editar Estado de la Máquina</th>
-      </tr>
-    </thead>
+<!-- Colors -->
+<div class="mt-5">
+  <table>
+    <th class="box-color">A</th>
     <tbody>
       <tr>
-        <th scope="row">1</th>
-        <td>{{maquina.tipo}}</td>
-        <td>{{maquina.cuartel}}</td>
-        <td>{{maquina.chofer}}</td>
-        <td>{{maquina.n_chasis}}</td>
-        <td>{{maquina.n_patente}}</td>
-        <td>{{maquina.estado}}</td>
-        <td>
-          <!-- Estados -->
-          <select [(ngModel)]="maquina.estado" (change)="updateEstado(maquina.id, maquina.estado)">
-            <option
-              *ngFor="let e_maq of estado_maquinas"
-              value="{{ e_maq.id }}">{{ e_maq.name }}</option>
-          </select>
-        </td>
+        <td><button block class="btn btn-primary" (click)="setColor('blue')">B</button></td>
+        <td><button block class="btn btn-danger" (click)="setColor('red')">C</button></td>
+        <td><button block class="btn btn-success" (click)="setColor('green')">D</button></td>
+        <td><button block class="btn btn-warning" (click)="setColor('yellow')">E</button></td>
       </tr>
     </tbody>
   </table>
 </div>
-<!--
-<div class="text mt-3" *ngFor="let maquina of maquinas">
-  <ul>
-    <li>{{maquina.chofer}}</li>
-    <li>{{maquina.cuartel}}</li>
-    <li>{{maquina.n_chasis}}</li>
-    <li>{{maquina.n_patente}}</li>
-    <li>{{maquina.tipo}}</li>
-    <li>
-      <!-- Estados
-      <select [(ngModel)]="maquina.estado" (change)="updateEstado(maquina.id, maquina.estado)">
-        <option
-          *ngFor="let e_maq of estado_maquinas"
-          value="{{ e_maq.id }}">{{ e_maq.name }}</option>
-      </select>
-    </li>
-  </ul>
-</div>
--->

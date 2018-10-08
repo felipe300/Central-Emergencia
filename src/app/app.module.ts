@@ -22,18 +22,30 @@ import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { GgmapsComponent } from './components/ggmaps/ggmaps.component';
 
-// Service => providers
-import { ConexionService } from './service/conexion.service';
 import { ListaEmergenciaComponent } from './components/lista-emergencia/lista-emergencia.component';
 import { ListaEmergenciaAddComponent } from './components/lista-emergencia-add/lista-emergencia-add.component';
 import { EmergenciasComponent } from './components/emergencias/emergencias.component';
+
 import { MaquinasComponent } from './components/maquinas/maquinas.component';
+import { AddMaquinaComponent } from './components/add-maquina/add-maquina.component';
+import { ListaMaquinaComponent } from './components/lista-maquina/lista-maquina.component';
+
+import { AgendaComponent } from './components/agenda/agenda.component';
+import { AgendaAddComponent } from './components/agenda-add/agenda-add.component';
+import { ListaAgendaComponent } from './components/lista-agenda/lista-agenda.component';
+
 import { CuartelesComponent } from './components/cuarteles/cuarteles.component';
+
+// Service => providers
+import { ConexionService } from './service/conexion.service';
 import { AuthGuard } from './guard/auth.guard';
+import { ConexionMaqService } from './service/conexion-maq.service';
+import { ConexionAgendaService } from './service/conexion-agenda.service';
 
 // Routes
 const routes: Routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
+  { path: 'agenda', component: AgendaComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
   { path: 'ggmaps', component: GgmapsComponent, canActivate: [AuthGuard] },
@@ -57,7 +69,12 @@ const routes: Routes = [
     ListaEmergenciaAddComponent,
     EmergenciasComponent,
     MaquinasComponent,
-    CuartelesComponent
+    CuartelesComponent,
+    AddMaquinaComponent,
+    ListaMaquinaComponent,
+    AgendaComponent,
+    AgendaAddComponent,
+    ListaAgendaComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +93,11 @@ const routes: Routes = [
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
     AngularFireStorageModule // imports firebase/storage only needed for storage features
   ],
-  providers: [],
+  providers: [
+    ConexionService,
+    ConexionMaqService,
+    ConexionAgendaService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

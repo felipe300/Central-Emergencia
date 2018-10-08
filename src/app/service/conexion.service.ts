@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+// Conectar a Firebase/emergencia
 export interface Item {
   tipo_emergencia: string;
   sector: string;

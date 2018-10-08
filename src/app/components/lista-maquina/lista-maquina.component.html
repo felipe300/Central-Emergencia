@@ -1,0 +1,74 @@
+<h2 class="mt-5">Lista de Máquinas</h2>
+
+<div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Código Máquina</th>
+        <th scope="col">Tipo de Máquina</th>
+        <th scope="col">Cuartel</th>
+        <th scope="col">Chofer</th>
+        <th scope="col">Estado</th>
+        <th scope="col">Cambiar Estado</th>
+      </tr>
+    </thead>
+    <tbody  class="text mt-3" *ngFor="let maq of maquinas">
+      <tr>
+        <td scope="row">1</td>
+        <td>{{maq.codigo_maquina}}</td>
+        <td>{{maq.tipo_maquina}}</td>
+        <td>{{maq.cuartel}}</td>
+        <td>{{maq.chofer}}</td>
+        <td>{{maq.estado}}</td>
+<!--         <td>
+          Estados
+          <select [(ngModel)]="maquina.estado" (change)="updateEstado(maquina.id, maquina.estado)">
+            <option
+              *ngFor="let e_maq of estado_maquinas"
+              value="{{ e_maq.id }}">{{ e_maq.name }}</option>
+          </select>
+        </td> -->
+        <td>
+          <div class="float-right mx-3" (click)="editarMaquina(maq)">
+            <i class="fas fa-pencil-alt"
+            data-toggle="modal" data-target="#exampleModal"></i>
+          </div>
+        </td>
+        <td>
+          <div class="float-right" (click)="eliminarMaquina(maq)">
+            <i class="fas fa-trash-alt"></i>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title: {{editarMQ.nombre}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="agregarDMaquina()">
+          <input type="text" placeholder="Editar Nombre" 
+                  name="nombre" class="form-control mt-3"
+                  [(ngModel)]="editarMQ.chofer">
+          <input type="text" placeholder="Editar Apellido" 
+                  name="apellido" class="form-control mt-3"
+                  [(ngModel)]="editarMQ.cuartel">
+          <button type="submit" class="btn btn-primary mt-3">Editar a Máquina</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

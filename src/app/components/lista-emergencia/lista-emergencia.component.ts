@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ConexionService } from '../../service/conexion.service';
-import { EmergenciasComponent } from '../emergencias/emergencias.component';
 
 @Component({
   selector: 'app-lista-emergencia',
@@ -40,5 +39,5 @@ export class ListaEmergenciaComponent implements OnInit {
   agregarEmgEditado() {
     this.conexion.editarEmg(this.editarEmger);
   }
-
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
 }

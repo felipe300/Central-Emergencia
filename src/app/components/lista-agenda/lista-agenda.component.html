@@ -1,0 +1,40 @@
+<ul>
+  <li *ngFor="let agd of agendas">
+    {{ agd.id }} {{ agd.nombre }} {{ agd.apellido }}
+    <div class="float-right" (click)="eliminarDatosAgenda(agd)">
+      <i class="fas fa-trash-alt"></i>
+    </div>
+    <div class="float-right mx-3" (click)="editarDatosAgenda(agd)" 
+    data-toggle="modal" data-target="#exampleModal">
+      <i class="fas fa-pencil-alt"></i>
+    </div>
+  </li>
+</ul>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title: {{editarDA.nombre}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="agregarDAEditados()">
+          <input type="text" placeholder="Editar Nombre" 
+                  name="nombre" class="form-control mt-3"
+                  [(ngModel)]="editarDA.nombre">
+          <input type="text" placeholder="Editar Apellido" 
+                  name="apellido" class="form-control mt-3"
+                  [(ngModel)]="editarDA.apellido">
+          <button type="submit" class="btn btn-primary mt-3">Editar a Agenda</button>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

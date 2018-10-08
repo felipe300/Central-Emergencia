@@ -1,0 +1,23 @@
+
+<form (ngSubmit)="agregarMaquina()" class="mt-5">
+  <input type="text" placeholder="Código de la Máquina" name="codigo_maquina"
+  class="form-control mt-2" [(ngModel)]="datosMaq.codigo_maquina"
+  >
+  <input type="text" placeholder="Tipo de Máquina" name="tipo_maquina"
+  class="form-control mt-2" [(ngModel)]="datosMaq.tipo_maquina"
+  >
+  <input type="text" placeholder="Cuartel" name="cuartel"
+  class="form-control mt-2" [(ngModel)]="datosMaq.cuartel"
+  >
+  <input type="text" placeholder="Chofer" name="chofer"
+  class="form-control mt-2" [(ngModel)]="datosMaq.chofer"
+  >
+  <input type="text" placeholder="Estado Actual" name="estado_maquina"
+  class="form-control mt-2" [(ngModel)]="datosMaq.estado_maquina"
+  >
+  <input type="text" placeholder="Cambiar Estado" name="cambiar_estado"
+  class="form-control mt-2" [(ngModel)]="datosMaq.cambiar_estado"
+  >
+  <button class="btn btn-primary mt-3" type="submit">Agregar Nueva Máquina</button>
+</form>
+

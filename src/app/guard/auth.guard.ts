@@ -13,6 +13,7 @@ import 'rxjs/add/operator/do';
 })
 export class AuthGuard implements CanActivate {
 
+  // Evitar Ingreso por Parte de Terceros
   constructor
    (private router: Router,
     private afAuth: AngularFireAuth,
