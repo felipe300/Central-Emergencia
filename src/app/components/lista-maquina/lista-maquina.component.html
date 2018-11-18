@@ -4,7 +4,6 @@
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Código Máquina</th>
         <th scope="col">Tipo de Máquina</th>
         <th scope="col">Cuartel</th>
@@ -15,7 +14,6 @@
     </thead>
     <tbody  class="text mt-3" *ngFor="let maq of maquinas">
       <tr>
-        <td scope="row">1</td>
         <td>{{maq.codigo_maquina}}</td>
         <td>{{maq.tipo_maquina}}</td>
         <td>{{maq.cuartel}}</td>
@@ -50,24 +48,52 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title: {{editarMQ.nombre}}</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Máquina a editar: {{editarMQ.codigo_maquina}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form (ngSubmit)="agregarDMaquina()">
-          <input type="text" placeholder="Editar Nombre" 
+          <input type="text" placeholder="Editar Código de la Máquina" 
                   name="nombre" class="form-control mt-3"
-                  [(ngModel)]="editarMQ.chofer">
-          <input type="text" placeholder="Editar Apellido" 
+                  [(ngModel)]="editarMQ.codigo_maquina">
+          <input type="text" placeholder="Editar Tipo de Máquina" 
                   name="apellido" class="form-control mt-3"
+                  [(ngModel)]="editarMQ.tipo_maquina">
+          <input type="text" placeholder="Editar Cuartel" 
+                  name="nombre" class="form-control mt-3"
                   [(ngModel)]="editarMQ.cuartel">
+          <input type="text" placeholder="Editar Chofer" 
+                  name="apellido" class="form-control mt-3"
+                  [(ngModel)]="editarMQ.chofer">
           <button type="submit" class="btn btn-primary mt-3">Editar a Máquina</button>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarMaquina">
+  Agregar Nueva Máquina
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalAgregarMaquina" tabindex="-3" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Ingresar Datos</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <app-add-maquina></app-add-maquina>
       </div>
     </div>
   </div>

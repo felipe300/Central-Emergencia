@@ -1,0 +1,26 @@
+
+<!-- Colors -->
+<div class="mt-5">
+  <table>
+    <th class="box-color" [style.backgroundColor]="color">{{estado}}</th>
+    <tbody>
+      <tr>
+        <td></td>
+        <td><button iblock class="btn btn-success" (click)="setColor('green')" 
+          (click)="setValue('Cuartel')" (click)="upDateColor()">Cuartel</button></td>
+        <td><button block class="btn btn-primary" (click)="setColor('blue')" 
+          (click)="setValue('Activo')" (click)="upDateColor()">Activo</button></td>
+        <!--Cambie Manatención por Taller Warning-->
+        <td><button block class="btn btn-warning" (click)="setColor('yellow')" 
+          (click)="setValue('Taller')" (click)="upDateColor()">Taller</button></td>
+        <td><button block class="btn btn-danger" (click)="setColor('red')" 
+          (click)="setValue('Fuera de Servicio')" (click)="upDateColor()">Fuera de Servicio</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="alert alert-warning" role="alert" *ngFor="let dato of datos">
+  {{dato.color}}<br>
+  {{dato.estadoActual}}
+</div>

@@ -41,6 +41,8 @@ import { ConexionService } from './service/conexion.service';
 import { AuthGuard } from './guard/auth.guard';
 import { ConexionMaqService } from './service/conexion-maq.service';
 import { ConexionAgendaService } from './service/conexion-agenda.service';
+import { EstadoMaquinaComponent } from './components/estado-maquina/estado-maquina.component';
+import { ConexionEstadoMaquinaService } from './service/conexion-estado-maquina.service';
 
 // Routes
 const routes: Routes = [
@@ -75,6 +77,7 @@ const routes: Routes = [
     AgendaComponent,
     AgendaAddComponent,
     ListaAgendaComponent,
+    EstadoMaquinaComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,7 +99,8 @@ const routes: Routes = [
   providers: [
     ConexionService,
     ConexionMaqService,
-    ConexionAgendaService
+    ConexionAgendaService,
+    ConexionEstadoMaquinaService
   ],
   bootstrap: [AppComponent]
 })

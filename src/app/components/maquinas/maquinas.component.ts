@@ -36,10 +36,6 @@ export class MaquinasComponent implements OnInit {
     });
   }
 
-  setColor(selectedColor: string): void{
-    console.log('Texto '+ selectedColor);    
-  }
-
   ngOnInit() {
   }
 
@@ -47,6 +43,5 @@ export class MaquinasComponent implements OnInit {
     console.log('id', id);
     console.log('estado', estado);
   }
-
 
 }
