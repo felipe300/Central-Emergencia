@@ -1,23 +1,21 @@
 <!-- LogIn + Logo -->
 <body class="card col-md-6 mx-auto mt-5 text-center">
   <form class="form-signin" (submit)="ingresarAplicacion()" autocomplete="off">
-    <img class="mb-4" src="../../../assets/logo.png" alt="logo" width="250" height="250">
+    <img class="mb-4" src="../../../assets/logo.png" alt="logo" width="170" height="170">
     <h1 class="h3 mb-3 font-weight-normal">Inicio de Sesión</h1>
 
     <!-- Correo -->
     <label for="email" class="sr-only">Correo Electronico</label>
     <input type="email" name="email" id="email" class="form-control" [(ngModel)]="email" placeholder="Correo Electronico" required autofocus>
-    <small id="emailHelp" class="form-text mb-3 text-muted">Nunca compartas tu Correo con otros.</small>
-
+    <br>
     <!-- Pass -->
     <label for="password" class="sr-only">Contraseña</label>
     <input type="password" name="password" id="password" [(ngModel)]="password" class="form-control" placeholder="Contraseña" required>
-    <small id="passHelp" class="form-text mb-3 text-muted">Nunca compartas tu Email con otros.</small>
     
     <!-- Recordarme-->
     <div class="checkbox mb-3">
       <label>
-        <input type="checkbox" value="remember-me"> Recuerdarme!
+        <input type="checkbox" value="remember-me"> Recuerdarme
       </label>
     </div>
     
