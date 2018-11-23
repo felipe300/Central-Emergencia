@@ -47,6 +47,7 @@ import { ConexionEstadoMaquinaService } from './service/conexion-estado-maquina.
 // Angular Material
 import {MatTabsModule} from '@angular/material/tabs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
 
 // Routes
@@ -102,6 +103,7 @@ const routes: Routes = [
     AngularFireStorageModule, // imports firebase/storage only needed for storage features
     MatTabsModule,
     BrowserAnimationsModule,
+    NoopAnimationsModule,
   ],
   providers: [
     ConexionService,
