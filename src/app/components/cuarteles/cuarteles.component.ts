@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
-import { Observable } from 'rxjs';
+
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @Component({
   selector: 'app-cuarteles',
@@ -8,11 +8,6 @@ import { Observable } from 'rxjs';
   styleUrls: ['./cuarteles.component.css']
 })
 export class CuartelesComponent implements OnInit {
-
-  items: Observable<any[]>;
-  constructor(db: AngularFirestore) {
-    this.items = db.collection('cuartel').valueChanges();
-  }
 
   ngOnInit() {
   }

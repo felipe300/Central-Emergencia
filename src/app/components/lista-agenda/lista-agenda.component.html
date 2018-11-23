@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let agd of agendas">
-    {{ agd.nombre }} {{ agd.apellido }}
+    {{ agd.nombre }} - {{ agd.cargo }} - {{ agd.telefono }} - {{ agd.correo }} - {{ agd.compania }}
     <div class="float-right" (click)="eliminarDatosAgenda(agd)">
       <i class="fas fa-trash-alt"></i>
     </div>
@@ -16,7 +16,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Datos de la Agenda a editar: {{editarDA.nombre}}</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Datos a editar: {{editarDA.nombre}}</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -26,12 +26,21 @@
           <input type="text" placeholder="Editar Nombre" 
                   name="nombre" class="form-control mt-3"
                   [(ngModel)]="editarDA.nombre">
-          <input type="text" placeholder="Editar Apellido" 
-                  name="apellido" class="form-control mt-3"
-                  [(ngModel)]="editarDA.apellido">
+          <input type="text" placeholder="Editar Cargo" 
+                  name="cargo" class="form-control mt-3"
+                  [(ngModel)]="editarDA.cargo">
+          <input type="text" placeholder="Editar Teléfono" 
+                  name="telefono" class="form-control mt-3"
+                  [(ngModel)]="editarDA.telefono">
+          <input type="email" placeholder="Editar Correo" 
+                  name="correo" class="form-control mt-3"
+                  [(ngModel)]="editarDA.correo">
+          <input type="text" placeholder="compania" 
+                  name="compannia" class="form-control mt-3"
+                  [(ngModel)]="editarDA.compania">
           <button type="submit" class="btn btn-primary mt-3">Actualizar a Agenda</button>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           </div>
         </form>
       </div>

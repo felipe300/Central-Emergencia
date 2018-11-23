@@ -1,10 +1,15 @@
-
 <form (ngSubmit)="agregarDatosAgenda()">
-  <input type="text" placeholder="Nombre" 
-          name="nombre" class="form-control mt-3"
-          [(ngModel)]="datosAGD.nombre">
-  <input type="text" placeholder="Apellido" 
-          name="apellido" class="form-control mt-3"
-          [(ngModel)]="datosAGD.apellido">
-  <button type="submit" class="btn btn-primary mt-3">Agregar a Agenda</button>
+        <div>
+                <input type="text" placeholder="Nombre" name="nombre" class="form-control mt-3" [(ngModel)]="datosAGD.nombre"
+                        minlength="5" maxlength="50" #nombre="ngModel" required >
+                <input type="text" placeholder="Cargo" name="cargo" class="form-control mt-3" [(ngModel)]="datosAGD.cargo"
+                        minlength="5" maxlength="50" #cargo="ngModel" required >
+                <input type="text" placeholder="Teléfono" name="telefono" class="form-control mt-3" [(ngModel)]="datosAGD.telefono"
+                        minlength="5" maxlength="50" #telefono="ngModel" required >
+                <input type="email" placeholder="Correo" name="correo" class="form-control mt-3" [(ngModel)]="datosAGD.correo"
+                        minlength="5" maxlength="50" #correo="ngModel" required >
+                <input type="text" placeholder="Compania" name="compania" class="form-control mt-3" [(ngModel)]="datosAGD.compania"
+                        minlength="5" maxlength="50" #compania="ngModel" required >
+                <button type="submit" class="btn btn-primary mt-3">Agregar a Agenda</button>
+        </div>
 </form>

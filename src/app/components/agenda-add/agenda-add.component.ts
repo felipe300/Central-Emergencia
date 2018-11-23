@@ -10,7 +10,10 @@ export class AgendaAddComponent implements OnInit {
 
   datosAGD:any = {
     nombre: '',
-    apellido: ''
+    cargo: '',
+    telefono: '',
+    correo: '',
+    compania: ''
   }
 
   constructor(private servicio: ConexionAgendaService) { }
@@ -21,8 +24,11 @@ export class AgendaAddComponent implements OnInit {
   // Viene agendaAdd
   agregarDatosAgenda(){
     this.servicio.addAgenda(this.datosAGD);
-    this.datosAGD.nombre="";
-    this.datosAGD.apellido="";
+    this.datosAGD.nombre = '';
+    this.datosAGD.cargo = '';
+    this.datosAGD.telefono = '';
+    this.datosAGD.correo = '';
+    this.datosAGD.compania = '';
   }
 
 }

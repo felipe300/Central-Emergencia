@@ -44,6 +44,11 @@ import { ConexionAgendaService } from './service/conexion-agenda.service';
 import { EstadoMaquinaComponent } from './components/estado-maquina/estado-maquina.component';
 import { ConexionEstadoMaquinaService } from './service/conexion-estado-maquina.service';
 
+// Angular Material
+import {MatTabsModule} from '@angular/material/tabs';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+
 // Routes
 const routes: Routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
@@ -94,7 +99,9 @@ const routes: Routes = [
     AngularFireModule.initializeApp(environment.firebase), // imports firebase/app needed for everything
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
-    AngularFireStorageModule // imports firebase/storage only needed for storage features
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    MatTabsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     ConexionService,
