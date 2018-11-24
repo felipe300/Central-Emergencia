@@ -13,8 +13,6 @@ export class AddMaquinaComponent implements OnInit {
     tipo_maquina: '',
     cuartel: '',
     chofer: '',
-    estado_maquina: '',
-    cambiar_estado: '',
   };
 
   constructor(private servicio: ConexionMaqService) { }
@@ -29,8 +27,6 @@ export class AddMaquinaComponent implements OnInit {
     this.datosMaq.tipo_maquina = '';
     this.datosMaq.cuartel = '';
     this.datosMaq.chofer = '';
-    this.datosMaq.estado_maquina = '';
-    this.datosMaq.cambiar_estado = '';
   }
 
 }

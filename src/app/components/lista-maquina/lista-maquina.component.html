@@ -8,8 +8,6 @@
         <th scope="col">Tipo de Máquina</th>
         <th scope="col">Cuartel</th>
         <th scope="col">Chofer</th>
-        <th scope="col">Estado</th>
-        <th scope="col">Cambiar Estado</th>
       </tr>
     </thead>
     <tbody  class="text mt-3" *ngFor="let maq of maquinas">
@@ -18,15 +16,6 @@
         <td>{{maq.tipo_maquina}}</td>
         <td>{{maq.cuartel}}</td>
         <td>{{maq.chofer}}</td>
-        <td>{{maq.estado}}</td>
-<!--         <td>
-          Estados
-          <select [(ngModel)]="maquina.estado" (change)="updateEstado(maquina.id, maquina.estado)">
-            <option
-              *ngFor="let e_maq of estado_maquinas"
-              value="{{ e_maq.id }}">{{ e_maq.name }}</option>
-          </select>
-        </td> -->
         <td>
           <div class="float-right mx-3" (click)="editarMaquina(maq)">
             <i class="fas fa-pencil-alt"

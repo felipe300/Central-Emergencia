@@ -16,8 +16,6 @@ export class ListaMaquinaComponent implements OnInit {
     tipo_maquina: '',
     cuartel: '',
     chofer: '',
-    estado_maquina: '',
-    cambiar_estado: '',
   };
 
   constructor(db: AngularFirestore, private conexion: ConexionMaqService) {

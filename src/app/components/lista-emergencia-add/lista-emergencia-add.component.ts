@@ -9,13 +9,11 @@ import { ConexionService } from '../../service/conexion.service';
 export class ListaEmergenciaAddComponent implements OnInit {
 
   emerg: any = {
-    tipo_emergencia: '',
-    sector: '',
-    calle: '',
     punto_referencia: '',
-    denunciante: '',
-    telefono: '',
+    hora: '',
   };
+
+  tipo_emergencia: string = '';
 
   constructor(private servicio: ConexionService) { }
 
@@ -25,12 +23,12 @@ export class ListaEmergenciaAddComponent implements OnInit {
   // viene de lista-emergencia-add
   agregarEmergencia() {
     this.servicio.agregarEmg(this.emerg);
-    this.emerg.tipo_emergencia = '';
-    this.emerg.sector = '';
-    this.emerg.calle = '';
     this.emerg.punto_referencia = '';
-    this.emerg.denunciante = '';
-    this.emerg.telefono = '';
+    this.emerg.hora = '';
+  }
+
+  selectedChangeHandler(event: any) {
+    this.tipo_emergencia = event.target.value;
   }
 
 }
