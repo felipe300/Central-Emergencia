@@ -14,7 +14,7 @@ import { ConexionEstadoMaquinaService } from 'src/app/service/conexion-estado-ma
 })
 export class EstadoMaquinaComponent implements OnInit {
 
-  color: string ='purple';
+  color: string ='green';
   estado: string ='';
 
   datos: any;

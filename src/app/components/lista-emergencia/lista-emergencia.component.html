@@ -2,7 +2,7 @@
 <div class="mt-3"  *ngFor="let emg of items">
   <ul class="list-group mt-2">
     <li class="list-group-item">
-        {{emg.tipo_emergencia}} - {{emg.id}}
+        {{emg.tipo_emergencia}}
       <div class="float-right" (click)="eliminarEmg(emg)">
         <i class="fas fa-trash-alt"></i>
       </div>
@@ -10,6 +10,8 @@
         <i class="fas fa-pencil-alt"></i>
       </div>
     </li>
+    <li class="list-group-item">{{emg.fecha}}</li>
+    <li class="list-group-item">{{emg.hora}}</li>
     <li class="list-group-item">{{emg.sector}}</li>
     <li class="list-group-item">{{emg.calle}}</li>
     <li class="list-group-item">{{emg.punto_referencia}}</li>
@@ -30,6 +32,12 @@
       </div>
       <div class="modal-body">
         <form (ngSubmit)="agregarEmgEditado()" class="mt-5">
+          <input type="time" name="hora" class="form-control mt-2" 
+          placeholder="HH:mm:ss" ps-input-time require [(ngModel)]="editarEmger.hora"
+          >
+          <input type="date" name="fecha" class="form-control mt-2" 
+          placeholder="dd:MM:yyyy" require [(ngModel)]="editarEmger.fecha"
+          >
           <input type="text" placeholder="Tipo de Emergencia" name="tipo_emergencia"
           class="form-control mt-2" [(ngModel)]="editarEmger.tipo_emergencia"
           >

@@ -9,8 +9,7 @@ import { ConexionService } from '../../service/conexion.service';
 export class ListaEmergenciaAddComponent implements OnInit {
 
   emerg: any = {
-    punto_referencia: '',
-    hora: '',
+    punto_referencia: ''
   };
 
   tipo_emergencia: string = '';
@@ -24,7 +23,6 @@ export class ListaEmergenciaAddComponent implements OnInit {
   agregarEmergencia() {
     this.servicio.agregarEmg(this.emerg);
     this.emerg.punto_referencia = '';
-    this.emerg.hora = '';
   }
 
   selectedChangeHandler(event: any) {

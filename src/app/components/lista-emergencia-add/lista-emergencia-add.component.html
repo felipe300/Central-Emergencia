@@ -9,7 +9,7 @@
   <input type="text" placeholder="Punto de Referencia" name="punto_referencia"
   class="form-control mt-2" [(ngModel)]="emerg.punto_referencia"
   >
-  <input type="time" name="hora" class="form-control mt-2" [(ngModel)]="emerg.hora"
-  >
   <button class="btn btn-warning mt-3" type="submit" >Agregar</button>
 </form>
+
+<input type="date" #myDate [value]="demoUser.date | date:'yyyy-MM-dd'" (input)="demoUser.date=parseDate($event.target.value)" />

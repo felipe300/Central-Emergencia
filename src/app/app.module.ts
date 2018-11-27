@@ -17,7 +17,6 @@ import { FormsModule } from '@angular/forms';
 // Componments
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { ContactComponent } from './components/contact/contact.component';
 import { AboutComponent } from './components/about/about.component';
 import { LoginComponent } from './components/login/login.component';
 import { GgmapsComponent } from './components/ggmaps/ggmaps.component';
@@ -54,7 +53,6 @@ import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 const routes: Routes = [
   { path: '', component: LoginComponent, pathMatch: 'full' },
   { path: 'agenda', component: AgendaComponent },
-  { path: 'contact', component: ContactComponent },
   { path: 'about', component: AboutComponent },
   { path: 'ggmaps', component: GgmapsComponent, canActivate: [AuthGuard] },
   { path: 'emergencias', component: ListaEmergenciaComponent, canActivate: [AuthGuard] },
@@ -69,7 +67,6 @@ const routes: Routes = [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    ContactComponent,
     AboutComponent,
     LoginComponent,
     GgmapsComponent,

@@ -1,3 +1,6 @@
+
+
+<input type="text" [(ngModel)]="searchterm" (input)="search($event)">
 <ul>
   <li *ngFor="let agd of agendas">
     {{ agd.nombre }} - {{ agd.cargo }} - {{ agd.telefono }} - {{ agd.correo }} - {{ agd.compania }}
@@ -10,6 +13,9 @@
     </div>
   </li>
 </ul>
+<div *ngIf="agendas?.length < 1">
+  <p>Sorry, no clubs found</p>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

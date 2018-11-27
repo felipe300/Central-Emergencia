@@ -17,6 +17,8 @@ export class ListaEmergenciaComponent implements OnInit {
     punto_referencia: '',
     denunciante: '',
     telefono: '',
+    fecha:'',
+    hora:''
   };
 
   constructor(private conexion: ConexionService) {
@@ -39,5 +41,13 @@ export class ListaEmergenciaComponent implements OnInit {
   agregarEmgEditado() {
     this.conexion.editarEmg(this.editarEmger);
   }
+
+  parseDate(dateString: string): Date {
+    if (dateString) {
+        return new Date(dateString);
+    } else {
+        return null;
+    }
+}
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 }
