@@ -48,6 +48,11 @@ export class ListaEmergenciaComponent implements OnInit {
     } else {
         return null;
     }
-}
+  }
+
+  //
+  selectedChangeHandler(event: any) {
+    this.editarEmger = event.target.value;
+  }
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
 }

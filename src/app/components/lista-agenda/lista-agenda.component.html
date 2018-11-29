@@ -1,5 +1,4 @@
 
-
 <input type="text" [(ngModel)]="searchterm" (input)="search($event)">
 <ul>
   <li *ngFor="let agd of agendas">
@@ -14,7 +13,7 @@
   </li>
 </ul>
 <div *ngIf="agendas?.length < 1">
-  <p>Sorry, no clubs found</p>
+  <p>No se han encontrado posibles opciones</p>
 </div>
 
 <!-- Modal -->
@@ -28,27 +27,84 @@
         </button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="agregarDAEditados()">
-          <input type="text" placeholder="Editar Nombre" 
-                  name="nombre" class="form-control mt-3"
-                  [(ngModel)]="editarDA.nombre">
-          <input type="text" placeholder="Editar Cargo" 
-                  name="cargo" class="form-control mt-3"
-                  [(ngModel)]="editarDA.cargo">
-          <input type="text" placeholder="Editar Teléfono" 
-                  name="telefono" class="form-control mt-3"
-                  [(ngModel)]="editarDA.telefono">
-          <input type="email" placeholder="Editar Correo" 
-                  name="correo" class="form-control mt-3"
-                  [(ngModel)]="editarDA.correo">
-          <input type="text" placeholder="compania" 
-                  name="compannia" class="form-control mt-3"
-                  [(ngModel)]="editarDA.compania">
-          <button type="submit" class="btn btn-primary mt-3">Actualizar a Agenda</button>
+
+        <form (ngSubmit)="agregarDAEditados()" #agendaForm="ngForm" novalidate>
+
+          <input type="text" placeholder="Editar Nombre" name="nombre" class="form-control mt-3"
+          [(ngModel)]="editarDA.nombre" minlength="3" maxlength="50" #nombre="ngModel" required
+          >
+          <span *ngIf="!nombre.valid && nombre.touched">
+              <div [hidden]="!nombre.errors.required" class="alert alert-danger mt-2">
+                Obligatorio
+              </div>
+              <div [hidden]="!nombre.errors.minlength" class="alert alert-danger mt-2">
+                Minimo 3 caracteres
+              </div>
+              <div [hidden]="!nombre.errors.maxlength" class="alert alert-danger mt-2">
+                Maximo 50 caracteres
+              </div>
+          </span>
+
+          <input type="text" placeholder="Editar Cargo" name="cargo" class="form-control mt-3"
+           [(ngModel)]="editarDA.cargo" minlength="3" maxlength="50" #cargo="ngModel" required
+          >
+          <span *ngIf="!cargo.valid && cargo.touched">
+              <div [hidden]="!cargo.errors.required" class="alert alert-danger mt-2">
+                Obligatorio
+              </div>
+              <div [hidden]="!cargo.errors.minlength" class="alert alert-danger mt-2">
+                Minimo 3 caracteres
+              </div>
+              <div [hidden]="!cargo.errors.maxlength" class="alert alert-danger mt-2">
+                Maximo 50 caracteres
+              </div>
+            </span>
+
+          <input type="text" placeholder="Editar Teléfono" name="telefono" class="form-control mt-3"
+            [(ngModel)]="editarDA.telefono" minlength="9" maxlength="9" #telefono="ngModel" required
+            ng-pattern="/^(\+?56)?(\s?)(0?9)(\s?)[98765]\d{7}$/>">
+          <span *ngIf="!telefono.valid && telefono.touched">
+              <div [hidden]="!telefono.errors.ng-pattern" class="alert alert-danger mt-2">
+                  Ejemplo: 569987657
+              </div>
+              <div [hidden]="!telefono.errors.minlength" class="alert alert-danger mt-2">
+                Minimo 9 caracteres
+              </div>
+            </span>
+
+          <input type="email" placeholder="ejemplo@ejemplo.cl" name="correo" class="form-control mt-3"
+            [(ngModel)]="editarDA.correo" minlength="9" maxlength="50" #correo="ngModel" required
+            ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/">
+          <span *ngIf="!correo.valid && correo.touched">
+              <div [hidden]="!correo.errors.required" class="alert alert-danger mt-2">
+                Obligatorio
+              </div>
+              <div [hidden]="!correo.errors.ng-pattern" class="alert alert-danger mt-2">
+                Ejemplo ejemplo@ejemplo.cl
+              </div>
+            </span>
+
+          <input type="text" placeholder="compania" name="compannia" class="form-control mt-3"
+            [(ngModel)]="editarDA.compania" minlength="3" maxlength="50" #compannia="ngModel" required
+          >
+          <span *ngIf="!compannia.valid && compannia.touched">
+              <div [hidden]="!compannia.errors.required" class="alert alert-danger mt-2">
+                Obligatorio
+              </div>
+              <div [hidden]="!compannia.errors.minlength" class="alert alert-danger mt-2">
+                Minimo 3 caracteres
+              </div>
+              <div [hidden]="!compannia.errors.maxlength" class="alert alert-danger mt-2">
+                Maximo 50 caracteres
+              </div>
+            </span>
+
+          <button type="submit" class="btn btn-primary mt-3" [disabled]="!agendaForm.valid">Actualizar a Agenda</button>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
           </div>
         </form>
+
       </div>
     </div>
   </div>

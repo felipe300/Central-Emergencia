@@ -1,15 +1,92 @@
-<form (ngSubmit)="agregarDatosAgenda()">
-        <div>
-                <input type="text" placeholder="Nombre" name="nombre" class="form-control mt-3" [(ngModel)]="datosAGD.nombre"
-                        minlength="5" maxlength="50" #nombre="ngModel" required >
-                <input type="text" placeholder="Cargo" name="cargo" class="form-control mt-3" [(ngModel)]="datosAGD.cargo"
-                        minlength="5" maxlength="50" #cargo="ngModel" required >
-                <input type="text" placeholder="Teléfono" name="telefono" class="form-control mt-3" [(ngModel)]="datosAGD.telefono"
-                        minlength="5" maxlength="50" #telefono="ngModel" required >
-                <input type="email" placeholder="Correo" name="correo" class="form-control mt-3" [(ngModel)]="datosAGD.correo"
-                        minlength="5" maxlength="50" #correo="ngModel" required >
-                <input type="text" placeholder="Compania" name="compania" class="form-control mt-3" [(ngModel)]="datosAGD.compania"
-                        minlength="5" maxlength="50" #compania="ngModel" required >
-                <button type="submit" class="btn btn-primary mt-3">Agregar a Agenda</button>
-        </div>
-</form>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#agendaAddModal">
+                Agregar una nuava persona a la Agenda
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="agendaAddModal" tabindex="-1" role="dialog" aria-labelledby="agendaAddModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="agendaAddModalLabel">Modal title</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                                <form (ngSubmit)="agregarDatosAgenda()" #agendaAddForm="ngForm" novalidate>
+                                                <div>
+                                                        <input type="text" placeholder="Nombre" name="nombre" class="form-control mt-3"
+                                                        [(ngModel)]="datosAGD.nombre" minlength="3" maxlength="50" #nombre="ngModel" required>
+                                                        <span *ngIf="!nombre.valid && nombre.touched">
+                                                                <div [hidden]="!nombre.errors.required" class="alert alert-danger mt-2">
+                                                                        Obligatorio
+                                                                </div>
+                                                                <div [hidden]="!nombre.errors.minlength" class="alert alert-danger mt-2">
+                                                                        Minimo 3 caracteres
+                                                                </div>
+                                                                <div [hidden]="!nombre.errors.maxlength" class="alert alert-danger mt-2">
+                                                                        Maximo 50 caracteres
+                                                                </div>
+                                                        </span>
+                                        
+                                                        <input type="text" placeholder="Cargo" name="cargo" class="form-control mt-3"
+                                                        [(ngModel)]="datosAGD.cargo" minlength="5" maxlength="50" #cargo="ngModel" required>
+                                                        <span *ngIf="!cargo.valid && cargo.touched">
+                                                                <div [hidden]="!cargo.errors.required" class="alert alert-danger mt-2">
+                                                                        Obligatorio
+                                                                </div>
+                                                                <div [hidden]="!cargo.errors.minlength" class="alert alert-danger mt-2">
+                                                                        Minimo 3 caracteres
+                                                                </div>
+                                                                <div [hidden]="!cargo.errors.maxlength" class="alert alert-danger mt-2">
+                                                                        Maximo 50 caracteres
+                                                                </div>
+                                                        </span>
+                                        
+                                                        <input type="text" placeholder="Teléfono" name="telefono" class="form-control mt-3"
+                                                        [(ngModel)]="datosAGD.telefono" minlength="9" maxlength="9" #telefono="ngModel"
+                                                        ng-pattern="/^(\+?56)?(\s?)(0?9)(\s?)[98765]\d{7}$/>" required>
+                                                        <span *ngIf="!telefono.valid && telefono.touched">
+                                                                <div [hidden]="!telefono.errors.ng-pattern" class="alert alert-danger mt-2">
+                                                                        Ejemplo: 569987657
+                                                                </div>
+                                                                <div [hidden]="!telefono.errors.minlength" class="alert alert-danger mt-2">
+                                                                        Minimo 9 números
+                                                                </div>
+                                                        </span>
+                                        
+                                                        <input type="email" placeholder="ejemplo@ejemplo.cl" name="correo" class="form-control mt-3"
+                                                        [(ngModel)]="datosAGD.correo" minlength="8" maxlength="50" #correo="ngModel" required 
+                                                        ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/">
+                                                        <span *ngIf="!correo.valid && correo.touched">
+                                                                <div [hidden]="!correo.errors.required" class="alert alert-danger mt-2">
+                                                                        Obligatorio
+                                                                </div>
+                                                                <div [hidden]="!correo.errors.ng-pattern" class="alert alert-danger mt-2">
+                                                                        Ejemplo ejemplo@ejemplo.cl
+                                                                </div>
+                                                        </span>
+                                        
+                                                        <input type="text" placeholder="Compania" name="compania" class="form-control mt-3"
+                                                        [(ngModel)]="datosAGD.compania" minlength="5" maxlength="50" #compania="ngModel" required>
+                                                        <span *ngIf="!compania.valid && compania.touched">
+                                                                <div [hidden]="!compania.errors.required" class="alert alert-danger mt-2">
+                                                                        Obligatorio
+                                                                </div>
+                                                                <div [hidden]="!compania.errors.minlength" class="alert alert-danger mt-2">
+                                                                        Minimo 3 caracteres
+                                                                </div>
+                                                                <div [hidden]="!compania.errors.maxlength" class="alert alert-danger mt-2">
+                                                                        Maximo 50 caracteres
+                                                                </div>
+                                                        </span>
+                                        
+                                                        <button type="submit" class="btn btn-primary mt-3" [disabled]="!agendaAddForm.valid">Agregar a Agenda</button>
+                                                </div>
+                                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>

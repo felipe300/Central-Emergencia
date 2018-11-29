@@ -1,5 +1,5 @@
 
-<form (ngSubmit)="agregarEmergencia()" class="mt-5">
+<form (ngSubmit)="agregarEmergencia()" class="mt-3" #preEmergenciaForm="ngForm" novalidate >
   <select (change)="selectedChangeHandler($event)" placeholder="Tipo de Emergencia" name="tipo_emergencia"
   class="form-control mt-2" [(ngModel)]="emerg.tipo_emergencia">
       <option value="Monday">Monday</option>
@@ -7,9 +7,21 @@
       <option value="day">day</option>
   </select>
   <input type="text" placeholder="Punto de Referencia" name="punto_referencia"
-  class="form-control mt-2" [(ngModel)]="emerg.punto_referencia"
+  class="form-control mt-2" [(ngModel)]="emerg.punto_referencia" #punto_referencia="ngModel"
+  required minlength="3" maxlength="50"
   >
-  <button class="btn btn-warning mt-3" type="submit" >Agregar</button>
+  <span *ngIf="!punto_referencia.valid && punto_referencia.touched">
+    <div [hidden]="!punto_referencia.errors.minlength" class="alert alert-danger mt-2">
+      Minimo 3 caracteres
+    </div>
+    <div [hidden]="!punto_referencia.errors.maxlength" class="alert alert-danger mt-2">
+      Maximo 50 caracteres
+    </div>
+  </span>
+  <button class="btn btn-info mt-3" [disabled]="!preEmergenciaForm.valid" type="submit" >Agregar</button>
+  <span *ngIf="!preEmergenciaForm.valid">
+    <div [hidden]="!preEmergenciaForm.valid.click" class="alert alert-success mt-2">
+      Ok
+    </div>
+  </span>
 </form>
-
-<input type="date" #myDate [value]="demoUser.date | date:'yyyy-MM-dd'" (input)="demoUser.date=parseDate($event.target.value)" />

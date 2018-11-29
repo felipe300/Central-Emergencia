@@ -43,24 +43,75 @@
         </button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="agregarDMaquina()">
-          <input type="text" placeholder="Editar Código de la Máquina" 
-                  name="nombre" class="form-control mt-3"
-                  [(ngModel)]="editarMQ.codigo_maquina">
-          <input type="text" placeholder="Editar Tipo de Máquina" 
-                  name="apellido" class="form-control mt-3"
-                  [(ngModel)]="editarMQ.tipo_maquina">
-          <input type="text" placeholder="Editar Cuartel" 
-                  name="nombre" class="form-control mt-3"
-                  [(ngModel)]="editarMQ.cuartel">
-          <input type="text" placeholder="Editar Chofer" 
-                  name="apellido" class="form-control mt-3"
-                  [(ngModel)]="editarMQ.chofer">
-          <button type="submit" class="btn btn-primary mt-3">Editar a Máquina</button>
+
+        <form (ngSubmit)="agregarDMaquina()" #maquinaForm="ngForm" novalidate>
+
+          <input type="text" placeholder="Editar Código de la Máquina" name="codigo_maquina" class="form-control mt-3"
+            [(ngModel)]="editarMQ.codigo_maquina"  minlength="2" maxlength="50" #codigo_maquina="ngModel" required
+          >
+          <span *ngIf="!codigo_maquina.valid && codigo_maquina.touched">
+              <div [hidden]="!codigo_maquina.errors.required" class="alert alert-danger mt-2">
+                Obligatorio
+              </div>
+              <div [hidden]="!codigo_maquina.errors.minlength" class="alert alert-danger mt-2">
+                Minimo 2 caracteres
+              </div>
+              <div [hidden]="!codigo_maquina.errors.maxlength" class="alert alert-danger mt-2">
+                Maximo 50 caracteres
+              </div>
+            </span>
+
+          <input type="text" placeholder="Editar Tipo de Máquina" name="tipo_maquina" class="form-control mt-3"
+          [(ngModel)]="editarMQ.tipo_maquina" minlength="3" maxlength="50" #tipo_maquina="ngModel" required
+          >
+          <span *ngIf="!tipo_maquina.valid && tipo_maquina.touched">
+              <div [hidden]="!tipo_maquina.errors.required" class="alert alert-danger mt-2">
+                Obligatorio
+              </div>
+              <div [hidden]="!tipo_maquina.errors.minlength" class="alert alert-danger mt-2">
+                Minimo 3 caracteres
+              </div>
+              <div [hidden]="!tipo_maquina.errors.maxlength" class="alert alert-danger mt-2">
+                Maximo 50 caracteres
+              </div>
+            </span>
+
+          <input type="text" placeholder="Editar Cuartel" name="cuartel" class="form-control mt-3"
+          [(ngModel)]="editarMQ.cuartel" minlength="3" maxlength="50" #cuartel="ngModel" required
+          >
+          <span *ngIf="!cuartel.valid && cuartel.touched">
+              <div [hidden]="!cuartel.errors.required" class="alert alert-danger mt-2">
+                Obligatorio
+              </div>
+              <div [hidden]="!cuartel.errors.minlength" class="alert alert-danger mt-2">
+                Minimo 3 caracteres
+              </div>
+              <div [hidden]="!cuartel.errors.maxlength" class="alert alert-danger mt-2">
+                Maximo 50 caracteres
+              </div>
+            </span>
+
+          <input type="text" placeholder="Editar Chofer" name="chofer" class="form-control mt-3"
+          [(ngModel)]="editarMQ.chofer" minlength="3" maxlength="50" #chofer="ngModel" required
+          >
+          <span *ngIf="!chofer.valid && chofer.touched">
+              <div [hidden]="!chofer.errors.required" class="alert alert-danger mt-2">
+                Obligatorio
+              </div>
+              <div [hidden]="!chofer.errors.minlength" class="alert alert-danger mt-2">
+                Minimo 3 caracteres
+              </div>
+              <div [hidden]="!chofer.errors.maxlength" class="alert alert-danger mt-2">
+                Maximo 50 caracteres
+              </div>
+            </span>
+
+          <button type="submit" class="btn btn-primary mt-3" [disabled]="!maquinaForm.valid">Editar a Máquina</button>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </form>
+
       </div>
     </div>
   </div>

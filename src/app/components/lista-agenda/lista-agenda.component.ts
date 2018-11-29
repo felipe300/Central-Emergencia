@@ -73,7 +73,7 @@ export class ListaAgendaComponent implements OnInit {
 
   firequery(start, end) {
     console.log();
-    return this.afs.collection('agenda', ref => ref.limit(1).orderBy('nombre').startAt(start).endAt(end)).valueChanges();
+    return this.afs.collection('agenda', ref => ref.limit(3).orderBy('nombre').startAt(start).endAt(end)).valueChanges();
   }
 
 }

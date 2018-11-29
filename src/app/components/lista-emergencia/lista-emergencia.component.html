@@ -1,4 +1,5 @@
 <h1 class="mt-5">Lista de Emergencias</h1>
+
 <div class="mt-3"  *ngFor="let emg of items">
   <ul class="list-group mt-2">
     <li class="list-group-item">
@@ -31,32 +32,103 @@
         </button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="agregarEmgEditado()" class="mt-5">
-          <input type="time" name="hora" class="form-control mt-2" 
-          placeholder="HH:mm:ss" ps-input-time require [(ngModel)]="editarEmger.hora"
+        <form (ngSubmit)="agregarEmgEditado()" class="mt-5" #editarEmergenciaForm="ngForm" novalidate>
+          <input type="time" name="hora" class="form-control mt-2" placeholder="HH:mm:ss" 
+          ps-input-time [(ngModel)]="editarEmger.hora" #hora="ngModel" required
           >
-          <input type="date" name="fecha" class="form-control mt-2" 
-          placeholder="dd:MM:yyyy" require [(ngModel)]="editarEmger.fecha"
+          <span *ngIf="!hora.valid && hora.touched">
+            <div [hidden]="!hora.errors.required" class="alert alert-danger mt-2">
+              Obligatorio
+            </div>
+          </span>
+
+          <input type="date" name="fecha" class="form-control mt-2" placeholder="dd:MM:yyyy" 
+          [(ngModel)]="editarEmger.fecha" #fecha="ngModel" required
           >
-          <input type="text" placeholder="Tipo de Emergencia" name="tipo_emergencia"
-          class="form-control mt-2" [(ngModel)]="editarEmger.tipo_emergencia"
+          <span *ngIf="!fecha.valid && fecha.touched">
+            <div [hidden]="!fecha.errors.required" class="alert alert-danger mt-2">
+              Obligatorio
+            </div>
+          </span>
+
+          <input type="text" placeholder="Tipo de Emergencia" name="tipo_emergencia" class="form-control mt-2" 
+          [(ngModel)]="editarEmger.tipo_emergencia" #sector="ngModel" minlength="2" maxlength="50"required
           >
-          <input type="text" placeholder="Sector" name="sector"
-          class="form-control mt-2" [(ngModel)]="editarEmger.sector"
+
+          <input type="text" placeholder="Sector" name="sector" class="form-control mt-2" 
+          [(ngModel)]="editarEmger.sector" #sector="ngModel" minlength="2" maxlength="50"required
           >
-          <input type="text" placeholder="Calle" name="calle"
-          class="form-control mt-2" [(ngModel)]="editarEmger.calle"
+          <span *ngIf="!sector.valid && sector.touched">
+            <div [hidden]="!sector.errors.required" class="alert alert-danger mt-2">
+              Obligatorio
+            </div>
+            <div [hidden]="!sector.errors.minlength" class="alert alert-danger mt-2">
+              Minimo 2 caracteres
+            </div>
+            <div [hidden]="!sector.errors.maxlength" class="alert alert-danger mt-2">
+              Maximo 50 caracteres
+            </div>
+          </span>
+
+          <input type="text" placeholder="Calle" name="calle" class="form-control mt-2" 
+          [(ngModel)]="editarEmger.calle" #calle="ngModel" minlength="3" maxlength="50"
+          required
           >
-          <input type="text" placeholder="Punto de Referencia" name="punto_referencia"
-          class="form-control mt-2" [(ngModel)]="editarEmger.punto_referencia"
+          <span *ngIf="!calle.valid && calle.touched">
+            <div [hidden]="!calle.errors.required" class="alert alert-danger mt-2">
+              Obligatorio
+            </div>
+            <div [hidden]="!calle.errors.minlength" class="alert alert-danger mt-2">
+              Minimo 3 caracteres
+            </div>
+            <div [hidden]="!calle.errors.maxlength" class="alert alert-danger mt-2">
+              Maximo 50 caracteres
+            </div>
+          </span>
+
+          <input type="text" placeholder="Punto de Referencia" name="punto_referencia" class="form-control mt-2" 
+          [(ngModel)]="editarEmger.punto_referencia" #punto_referencia="ngModel" minlength="3" maxlength="50"
+          required
           >
-          <input type="text" placeholder="Nombre Denunciante" name="denunciante"
-          class="form-control mt-2" [(ngModel)]="editarEmger.denunciante"
+          <span *ngIf="!punto_referencia.valid && punto_referencia.touched">
+            <div [hidden]="!punto_referencia.errors.required" class="alert alert-danger mt-2">
+              Obligatorio
+            </div>
+            <div [hidden]="!punto_referencia.errors.minlength" class="alert alert-danger mt-2">
+              Minimo 3 caracteres
+            </div>
+            <div [hidden]="!punto_referencia.errors.maxlength" class="alert alert-danger mt-2">
+              Maximo 50 caracteres
+            </div>
+          </span>
+
+          <input type="text" placeholder="Nombre Denunciante" name="denunciante" class="form-control mt-2" 
+          [(ngModel)]="editarEmger.denunciante" #denunciante="ngModel" minlength="3" maxlength="50"
+          required
           >
-          <input type="text" placeholder="Telefono" name="telefono"
-          class="form-control mt-2" [(ngModel)]="editarEmger.telefono"
+          <span *ngIf="!denunciante.valid && denunciante.touched">
+            <div [hidden]="!denunciante.errors.minlength" class="alert alert-danger mt-2">
+              Minimo 3 caracteres
+            </div>
+            <div [hidden]="!denunciante.errors.maxlength" class="alert alert-danger mt-2">
+              Maximo 50 caracteres
+            </div>
+          </span>
+
+          <input type="text" placeholder="Telefono" name="telefono" class="form-control mt-2" 
+          [(ngModel)]="editarEmger.telefono" #telefono="ngModel" minlength="9" maxlength="9"
+          required ng-pattern="/^(\+?56)?(\s?)(0?9)(\s?)[98765]\d{7}$/>"
           >
-          <button class="btn btn-warning mt-3" type="submit">Guardar Cambios</button>
+          <span *ngIf="!telefono.valid && telefono.touched">
+            <div [hidden]="!telefono.errors.minlength" class="alert alert-danger mt-2">
+              Minimo 9 números
+            </div>
+            <div [hidden]="!telefono.errors.ng-pattern" class="alert alert-danger mt-2">
+                Ejemplo: 569987657
+              </div>
+          </span>
+
+          <button class="btn btn-primary mt-3" [disabled]="!editarEmergenciaForm.valid" type="submit">Guardar Cambios</button>
         </form>
       </div>
       <div class="modal-footer">
