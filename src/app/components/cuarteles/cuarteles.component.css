@@ -3,8 +3,16 @@
 }
 h3{
 text-align: center;
-margin-top: 3%;
+padding-top: 2em;
+
 }
 #maps {
 margin-bottom: 1.0%;
+}
+
+.fotos{
+margin-top: 3%;
+float: left;
+padding-top: 0%;
+
 }
