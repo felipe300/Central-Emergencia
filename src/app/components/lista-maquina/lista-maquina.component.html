@@ -52,6 +52,7 @@
 
         <form (ngSubmit)="agregarDMaquina()" #maquinaForm="ngForm" novalidate>
 
+          <label for="form7" class="mt-2">Código de la Máquina</label>
           <input type="text" placeholder="Editar Código de la Máquina" name="codigo_maquina" class="form-control mt-3"
             [(ngModel)]="editarMQ.codigo_maquina"  minlength="2" maxlength="50" #codigo_maquina="ngModel" required
           >
@@ -67,6 +68,7 @@
               </div>
             </span>
 
+          <label for="form7" class="mt-2">Tipo De máquina</label>
           <input type="text" placeholder="Editar Tipo de Máquina" name="tipo_maquina" class="form-control mt-3"
           [(ngModel)]="editarMQ.tipo_maquina" minlength="3" maxlength="50" #tipo_maquina="ngModel" required
           >
@@ -81,36 +83,40 @@
                 Maximo 50 caracteres
               </div>
             </span>
-
-          <input type="text" placeholder="Editar Cuartel" name="cuartel" class="form-control mt-3"
+          
+          <label for="form7" class="mt-2">Compañía</label>
+          <input type="text" placeholder="Editar Compania" name="cuartel" class="form-control mt-3"
           [(ngModel)]="editarMQ.cuartel" minlength="3" maxlength="50" #cuartel="ngModel" required
           >
           <span *ngIf="!cuartel.valid && cuartel.touched">
-              <div [hidden]="!cuartel.errors.required" class="alert alert-danger mt-2">
-                Obligatorio
-              </div>
-              <div [hidden]="!cuartel.errors.minlength" class="alert alert-danger mt-2">
-                Minimo 3 caracteres
-              </div>
-              <div [hidden]="!cuartel.errors.maxlength" class="alert alert-danger mt-2">
-                Maximo 50 caracteres
-              </div>
-            </span>
+            <div [hidden]="!cuartel.errors.required" class="alert alert-danger mt-2">
+              Obligatorio
+            </div>
+            <div [hidden]="!cuartel.errors.minlength" class="alert alert-danger mt-2">
+              Minimo 3 caracteres
+            </div>
+            <div [hidden]="!cuartel.errors.maxlength" class="alert alert-danger mt-2">
+              Maximo 50 caracteres
+            </div>
+          </span>
 
+          <label for="form7" class="mt-2">Chofer de la Máquina</label>
           <input type="text" placeholder="Editar Chofer" name="chofer" class="form-control mt-3"
           [(ngModel)]="editarMQ.chofer" minlength="3" maxlength="50" #chofer="ngModel" required
           >
           <span *ngIf="!chofer.valid && chofer.touched">
-              <div [hidden]="!chofer.errors.required" class="alert alert-danger mt-2">
-                Obligatorio
-              </div>
-              <div [hidden]="!chofer.errors.minlength" class="alert alert-danger mt-2">
-                Minimo 3 caracteres
-              </div>
-              <div [hidden]="!chofer.errors.maxlength" class="alert alert-danger mt-2">
-                Maximo 50 caracteres
-              </div>
+            <div [hidden]="!chofer.errors.required" class="alert alert-danger mt-2">
+              Obligatorio
+            </div>
+            <div [hidden]="!chofer.errors.minlength" class="alert alert-danger mt-2">
+              Minimo 3 caracteres
+            </div>
+            <div [hidden]="!chofer.errors.maxlength" class="alert alert-danger mt-2">
+              Maximo 50 caracteres
+            </div>
             </span>
+
+            <label for="form7" class="mt-2">Cambiar el Estado de la Máquina</label>
             <select (change)="selectedChangeHandler($event)" placeholder="Estado" name="estado"
             class="form-control mt-2" [(ngModel)]="editarMQ.estado">
                 <option value="En Espera" (click)="setColor('green')">En Espera</option>
@@ -140,7 +146,10 @@
         <h5 class="modal-title" id="exampleModalCenterTitle">Ingresar Datos</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button>
+         </button>
+      </div>
+      <div class="modal-body">
+          <app-add-maquina></app-add-maquina>
       </div>
     </div>
   </div>

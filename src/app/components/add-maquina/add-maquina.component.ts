@@ -10,10 +10,10 @@ export class AddMaquinaComponent implements OnInit {
 
   datosMaq: any = {
     codigo_maquina: '',
-    tipo_maquina: '',
     cuartel: '',
     chofer: ''
   };
+  tipoMaq: string = '';
 
   constructor(private servicio: ConexionMaqService) { }
 
@@ -24,10 +24,12 @@ export class AddMaquinaComponent implements OnInit {
   agregarMaquina() {
     this.servicio.addMaquina(this.datosMaq);
     this.datosMaq.codigo_maquina = '';
-    this.datosMaq.tipo_maquina = '';
     this.datosMaq.cuartel = '';
     this.datosMaq.chofer = '';
   }
 
+  selectedChangeHandler(event: any) {
+    this.tipoMaq = event.target.value;
+  }
 
 }

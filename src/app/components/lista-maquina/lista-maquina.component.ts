@@ -46,7 +46,6 @@ export class ListaMaquinaComponent implements OnInit {
     this.conexion.updateMaquina(this.editarMQ);
   }
 
-
   selectedChangeHandler(event: any) {
     this.estado = event.target.value;
   }
