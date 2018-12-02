@@ -18,6 +18,9 @@ export class ListaMaquinaComponent implements OnInit {
     chofer: '',
   };
 
+  estado: string = '';
+  color: string = 'green';
+
   constructor(db: AngularFirestore, private conexion: ConexionMaqService) {
     this.conexion.listaMaquina().subscribe(maquina => {
       this.maquinas = maquina;
@@ -41,6 +44,15 @@ export class ListaMaquinaComponent implements OnInit {
   // Update, viene del Modal de lista-agenda.html
   agregarDMaquina(editarMQ){
     this.conexion.updateMaquina(this.editarMQ);
+  }
+
+
+  selectedChangeHandler(event: any) {
+    this.estado = event.target.value;
+  }
+
+  setColor(selectedColor: string): void{
+    this.color = selectedColor;
   }
 }
 
