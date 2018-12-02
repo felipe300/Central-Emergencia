@@ -1,7 +1,7 @@
 
 <!-- Button trigger modal -->
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#agendaAddModal">
-                Agregar una nuava persona a la Agenda
+                Agregar nuevo personal
               </button>
               
               <!-- Modal -->
@@ -9,7 +9,7 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="agendaAddModalLabel">Modal title</h5>
+                      <h5 class="modal-title" id="agendaAddModalLabel"> Agregar a :{{}datosAGD.nombre}</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -17,6 +17,7 @@
                     <div class="modal-body">
                                 <form (ngSubmit)="agregarDatosAgenda()" #agendaAddForm="ngForm" novalidate>
                                                 <div>
+                                                        <label for="form7" class="mt-2">Nombre y Apellidos</label>
                                                         <input type="text" placeholder="Nombre" name="nombre" class="form-control mt-3"
                                                         [(ngModel)]="datosAGD.nombre" minlength="3" maxlength="50" #nombre="ngModel" required>
                                                         <span *ngIf="!nombre.valid && nombre.touched">
@@ -31,6 +32,7 @@
                                                                 </div>
                                                         </span>
                                         
+                                                        <label for="form7" class="mt-2">Cargo</label>
                                                         <input type="text" placeholder="Cargo" name="cargo" class="form-control mt-3"
                                                         [(ngModel)]="datosAGD.cargo" minlength="5" maxlength="50" #cargo="ngModel" required>
                                                         <span *ngIf="!cargo.valid && cargo.touched">
@@ -45,6 +47,7 @@
                                                                 </div>
                                                         </span>
                                         
+                                                        <label for="form7" class="mt-2">Número de Contacto</label>
                                                         <input type="text" placeholder="Teléfono" name="telefono" class="form-control mt-3"
                                                         [(ngModel)]="datosAGD.telefono" minlength="9" maxlength="9" #telefono="ngModel"
                                                         ng-pattern="/^(\+?56)?(\s?)(0?9)(\s?)[98765]\d{7}$/>" required>
@@ -57,6 +60,7 @@
                                                                 </div>
                                                         </span>
                                         
+                                                        <label for="form7" class="mt-2">Correo Electrónico</label>
                                                         <input type="email" placeholder="ejemplo@ejemplo.cl" name="correo" class="form-control mt-3"
                                                         [(ngModel)]="datosAGD.correo" minlength="8" maxlength="50" #correo="ngModel" required 
                                                         ng-pattern="/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/">
@@ -69,6 +73,7 @@
                                                                 </div>
                                                         </span>
                                         
+                                                        <label for="form7" class="mt-2">Compañía</label>
                                                         <input type="text" placeholder="Compania" name="compania" class="form-control mt-3"
                                                         [(ngModel)]="datosAGD.compania" minlength="5" maxlength="50" #compania="ngModel" required>
                                                         <span *ngIf="!compania.valid && compania.touched">
@@ -84,7 +89,7 @@
                                                         </span>
                                                         <div>
                                                                 <input type="file" (change)="onFileSelected($event)">
-                                                                <button type="button" (click)="onUpload()">Cargar Imagen</button>
+                                                                <button type="button" (click)="onUpload()">Cargar Foto </button>
                                                         </div>
                                         
                                                         <button type="submit" class="btn btn-primary mt-3" [disabled]="!agendaAddForm.valid">Agregar a Agenda</button>

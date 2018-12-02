@@ -1,19 +1,46 @@
+<div>
+    <label for="form7" class="mt-2">Buscar Voluntario por Nombre</label>
+    <input type="text" [(ngModel)]="searchterm" (input)="search($event)" class="mt-3 float-right">    
+</div>
 
-<input type="text" [(ngModel)]="searchterm" (input)="search($event)">
-<ul>
-  <li *ngFor="let agd of agendas">
-    {{ agd.nombre }} - {{ agd.cargo }} - {{ agd.telefono }} - {{ agd.correo }} - {{ agd.compania }}
-    <div class="float-right" (click)="eliminarDatosAgenda(agd)">
-      <i class="fas fa-trash-alt"></i>
-    </div>
-    <div class="float-right mx-3" (click)="editarDatosAgenda(agd)" 
-    data-toggle="modal" data-target="#exampleModal">
-      <i class="fas fa-pencil-alt"></i>
-    </div>
-  </li>
-</ul>
+<div class="table mt-3">
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope="col">Cargo</th>
+          <th scope="col">Número de Contacto</th>
+          <th scope="col">Correo Electrónico</th>
+          <th scope="col">Compañía</th>
+          <th scope="col"></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody  class="text mt-3" *ngFor="let agd of agendas">
+        <tr>
+          <td>{{ agd.nombre }}</td>
+          <td>{{ agd.cargo }}</td>
+          <td>{{ agd.telefono }}</td>
+          <td>{{ agd.correo }}</td>
+          <td>{{ agd.compania }}</td>
+          <td>
+            <div class="float-right mx-3" (click)="editarDatosAgenda(agd)">
+              <i class="fas fa-pencil-alt"
+              data-toggle="modal" data-target="#exampleModal"></i>
+            </div>
+          </td>
+          <td>
+            <div class="float-right" (click)="eliminarDatosAgenda(agd)">
+              <i class="fas fa-trash-alt"></i>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 <div *ngIf="agendas?.length < 1">
-  <p>No se han encontrado a la persona</p>
+  <p>No se ha encontrado a la persona</p>
 </div>
 
 <!-- Modal -->
