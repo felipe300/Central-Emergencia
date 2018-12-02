@@ -1,12 +1,65 @@
 
 <form (ngSubmit)="agregarEmergencia()" class="mt-3" #preEmergenciaForm="ngForm" novalidate >
   <div fxLayoutAlign="space-around center">
+      <label for="form7" class="mt-2">Seleccionar el Tipo de Emergencia</label>
       <select (change)="selectedChangeHandler($event)" placeholder="Tipo de Emergencia" name="tipo_emergencia"
       class="form-control mt-2" [(ngModel)]="emerg.tipo_emergencia">
-          <option value="Monday">Monday</option>
-          <option value="Mon">Mon</option>
-          <option value="day">day</option>
+          <option value="10-05 OTROS SERVICIOS">10-05 OTROS SERVICIOS</option>
+          <option value="10-05-01 INUNDACION (SERVICIO DE SUCCION)">10-05-01 INUNDACION (SERVICIO DE SUCCION)</option>
+          <option value="10-05-02 SERVICIO DE VOLADURA DE TECHUMBRE">10-05-02 SERVICIO DE VOLADURA DE TECHUMBRE</option>
+          <option value="10-05-03 SERVICIO DE DERRUMBE">10-05-03 SERVICIO DE DERRUMBE</option>
+          <option value="10-05-04 LETRERO CON RIESGO DE CAIDA (SERV ESCALA)">10-05-04 LETRERO CON RIESGO DE CAIDA (SERV ESCALA)</option>
+          <option value="10-05-05 SERVICIO DE ILUMINACION">10-05-05 SERVICIO DE ILUMINACION</option>
+          <option value="10-05-06 MAQUINA SALE A VERIF. DENUN. DE HUMO SOSPECHOSO">10-05-06 MAQUINA SALE A VERIF. DENUN. DE HUMO SOSPECHOSO</option>
+          <option value="10-05-07 MAQUINA SALE A ABRIR (DEPTO, CASA, ASCENSOR, ETC…)">10-05-07 MAQUINA SALE A ABRIR (DEPTO, CASA, ASCENSOR, ETC…)</option>
+          <option value="10-05-08 RESCATE ANIMAL">10-05-08 RESCATE ANIMAL</option>
+          <option value="10-05-09 QUEMA DE MATORRALES">10-05-09 QUEMA DE MATORRALES</option>
+          <option value="10-05-10 REMOCION DE ESCOMBROS">10-05-10 REMOCION DE ESCOMBROS</option>
+          <option value="10-05-11 ENTREGA DE AGUA">10-05-11 ENTREGA DE AGUA</option>
+          <option value="10-05-12 APOYO A OTRAS CIUDADES">10-05-12 APOYO A OTRAS CIUDADES</option>
+          <option value="10-06 ACCIDENTE DE TRANSITO">10-06 ACCIDENTE DE TRANSITO</option>
+          <option value="10-06-01 ACCIDENTE DE TRAN. VEHICULO DE TRANS. DE PASAJ.">10-06-01 ACCIDENTE DE TRAN. VEHICULO DE TRANS. DE PASAJ.</option>
+          <option value="10-06-02 ATROPELLO">10-06-02 ATROPELLO</option>
+          <option value="10-06-03 INMOVILIZACION DE PERSONA">10-06-03 INMOVILIZACION DE PERSONA</option>
+          <option value="10-06-04 RESCATE DE PERSONA (MAR-QUEBRADA-CARRO-ETC.)">10-06-04 RESCATE DE PERSONA (MAR-QUEBRADA-CARRO-ETC.)</option>
+          <option value="10-06-05 RESCATE EN ALTURA">10-06-05 RESCATE EN ALTURA</option>
+          <option value="10-06-06 CAIDA DE VEHICULO (MAR-QUEBRADA)">10-06-06 CAIDA DE VEHICULO (MAR-QUEBRADA)</option>
+          <option value="10-06-07 RECUPERAR CADAVER">10-06-07 RECUPERAR CADAVER</option>
+          <option value="10-06-08 EMERGENCIA MEDICA (USO DESFIBRILADOR)">10-06-08 EMERGENCIA MEDICA (USO DESFIBRILADOR)</option>
+          <option value="10-06-09 APOYO A OTRAS CIUDADES">10-06-09 APOYO A OTRAS CIUDADES</option>
+          <option value="10-07 INFLAMACION DE CHIMENEA">10-07 INFLAMACION DE CHIMENEA</option>
+          <option value="10-08 INCENDIO VEHICULO MENOR">10-08 INCENDIO VEHICULO MENOR</option>
+          <option value="10-08-01 INCENDIO VEHICULO TRANS. PASAJERO (BUS)">10-08-01 INCENDIO VEHICULO TRANS. PASAJERO (BUS)</option>
+          <option value="10-08-02 INCENDIO DE CAMION">10-08-02 INCENDIO DE CAMION</option>
+          <option value="10-08-03 INCENDIO DE EMBARCACION">10-08-03 INCENDIO DE EMBARCACION</option>
+          <option value="10-09 PRINCIPIO DE INCENDIO">10-09 PRINCIPIO DE INCENDIO</option>
+          <option value="10-09-01 PRINCIPIO DE INCENDIO EN EDIF. DE ALT. (3 PISOS)">10-09-01 PRINCIPIO DE INCENDIO EN EDIF. DE ALT. (3 PISOS)</option>
+          <option value="10-09-02 INCE. MENOR (KIOSCO-LEÑERA-MEDIAGUA-BASU.)">10-09-02 INCE. MENOR (KIOSCO-LEÑERA-MEDIAGUA-BASU.)</option>
+          <option value="10-09-03 MAQUINA SALE A VERIFICAR EMERG. NO CONFIR.">10-09-03 MAQUINA SALE A VERIFICAR EMERG. NO CONFIR.</option>
+          <option value="10-09-04 INCENDIO DE LETRERO EN VIA PÚBLICA">10-09-04 INCENDIO DE LETRERO EN VIA PÚBLICA</option>
+          <option value="10-09-05 REBROTE DE INCENDIO">10-09-05 REBROTE DE INCENDIO</option>
+          <option value="10-10 INCENDIO DECLARADO">10-10 INCENDIO DECLARADO</option>
+          <option value="10-10-01 INCENDIO DECLARADO SECTOR RURAL">10-10-01 INCENDIO DECLARADO SECTOR RURAL</option>
+          <option value="10-10-02 INCENDIO DECLARADO DE MATERIAS PELIGROSAS">10-10-02 INCENDIO DECLARADO DE MATERIAS PELIGROSAS</option>
+          <option value="10-10-03 APOYO A OTRAS CIUDADES">10-10-03 APOYO A OTRAS CIUDADES</option>
+
+          <option value="10-80 EMERGENCIA DE MAT-PEL">10-80 EMERGENCIA DE MAT-PEL</option>
+          <option value="10-80-01 EXPLOSION DE GAS O COMBUSTIBLE">10-80-01 EXPLOSION DE GAS O COMBUSTIBLE</option>
+          <option value="10-80-02 INCENDIO DE VEHICULO DE TRANS. DE COMBUSTIBLE">10-80-02 INCENDIO DE VEHICULO DE TRANS. DE COMBUSTIBLE</option>
+          <option value="10-09 PRINCIPIO DE INCENDIO">10-09 PRINCIPIO DE INCENDIO</option>
+          <option value="10-80-03 DERRAME DE VEHICULO DE TRANS. DE COMBUSTIBLE">10-80-03 DERRAME DE VEHICULO DE TRANS. DE COMBUSTIBLE</option>
+          <option value="10-80-04 INCENDIO DE VEHICULO DE TRANS. DE MAT-PEL">10-80-04 INCENDIO DE VEHICULO DE TRANS. DE MAT-PEL</option>
+          <option value="10-80-05 DERRAME DE VEHICULO DE TRANS. DE MAT-PEL">10-80-05 DERRAME DE VEHICULO DE TRANS. DE MAT-PEL</option>
+          <option value="10-80-06 DERRAME DE COMBUST. ESTACION DE SERVI. (PLANTA)">10-80-06 DERRAME DE COMBUST. ESTACION DE SERVI. (PLANTA)</option>
+          <option value="10-80-07 DERRAME DE COMBUSTIBLE U OTRAS SUSTANCIAS">10-80-07 DERRAME DE COMBUSTIBLE U OTRAS SUSTANCIAS</option>
+          <option value="10-80-08 INFLAMACION DE CILINDRO DE GAS">10-80-08 INFLAMACION DE CILINDRO DE GAS</option>
+          <option value="10-80-09 ESCAPE DE GAS">10-80-09 ESCAPE DE GAS</option>
+          <option value="10-80-10 VERIFICAR OLOR A COMBUSTIBLE (OTROS)">10-80-10 VERIFICAR OLOR A COMBUSTIBLE (OTROS)</option>
+          <option value="10-80-11 APOYO A OTRAS CIUDADES">10-80-11 APOYO A OTRAS CIUDADES</option>
+          <option value="10-80-12 EMERGENCIA DE AERONAVE">10-80-12 EMERGENCIA DE AERONAVE</option>
       </select>
+
+      <label for="form7" class="mt-2">Punto de referencia más cercano</label>
       <input type="text" placeholder="Punto de Referencia" name="punto_referencia"
       class="form-control mt-2" [(ngModel)]="emerg.punto_referencia" #punto_referencia="ngModel"
       required minlength="3" maxlength="50"

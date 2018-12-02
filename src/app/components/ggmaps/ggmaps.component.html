@@ -2,19 +2,19 @@
 <div class="row">
 
   <!-- AutoComplete -->
-  <div class="form-group mt-3 col-md-9">
+  <div class="form-group mt-3 col-md-12">
     <input type="text" placeholder="Dirección" autocorrect="off" autocapitalize="off" 
         spellcheck="off" class="form-control" #search (ngKeyPress)="onChoseLocation($event)">
    </div>
 
-  <div class="col-md-9">
+  <div class="col-md-12">
       <div class="container mt-3">
-          <div class="">
+          <div class="mt-2">
             <app-lista-emergencia-add></app-lista-emergencia-add>
           </div>
         </div>
   </div>
-  <div class="col-md-9">
+  <div class="col-md-12">
     <!-- Map -->
     <div class="map mt-3 float-right">
       <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="onChoseLocation($event)" (mapReady)="addMarker($event)"

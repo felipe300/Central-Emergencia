@@ -7,7 +7,7 @@
       <div class="float-right" (click)="eliminarEmg(emg)">
         <i class="fas fa-trash-alt"></i>
       </div>
-      <div class="float-right mx-3" (click)="editarEmg(emg)" data-toggle="modal" data-target="#exampleModal">
+      <div class="float-right mx-3" (click)="editarEmg(emg)" data-toggle="modal" data-target="#emgModal">
         <i class="fas fa-pencil-alt"></i>
       </div>
     </li>
@@ -18,21 +18,34 @@
     <li class="list-group-item">{{emg.punto_referencia}}</li>
     <li class="list-group-item">{{emg.denunciante}}</li>
     <li class="list-group-item">{{emg.telefono}}</li>
+    <li class="list-group-item">{{emg.postEmg}}</li>
   </ul>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal Emergencia-->
+<div class="modal fade" id="emgModal" tabindex="-1" role="dialog" aria-labelledby="emgModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Emergencia</h5>
+        <h5 class="modal-title" id="emgModalLabel">Editar Emergencia</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <form (ngSubmit)="agregarEmgEditado()" class="mt-5" #editarEmergenciaForm="ngForm" novalidate>
+        <form (ngSubmit)="agregarEmgEditado()" class="mt-3" #editarEmergenciaForm="ngForm" novalidate>
+          
+          <label for="form7" class="mt-2">Fecha de la Emergencia</label>
+          <input type="date" name="fecha" class="form-control mt-2" placeholder="dd:MM:yyyy" 
+            [(ngModel)]="editarEmger.fecha" #fecha="ngModel" required
+          >
+          <span *ngIf="!fecha.valid && fecha.touched">
+            <div [hidden]="!fecha.errors.required" class="alert alert-danger mt-2">
+              Obligatorio
+            </div>
+          </span>  
+
+          <label for="form7" class="mt-2">Hora de la Emergencia</label>
           <input type="time" name="hora" class="form-control mt-2" placeholder="HH:mm:ss" 
           ps-input-time [(ngModel)]="editarEmger.hora" #hora="ngModel" required
           >
@@ -42,19 +55,12 @@
             </div>
           </span>
 
-          <input type="date" name="fecha" class="form-control mt-2" placeholder="dd:MM:yyyy" 
-          [(ngModel)]="editarEmger.fecha" #fecha="ngModel" required
-          >
-          <span *ngIf="!fecha.valid && fecha.touched">
-            <div [hidden]="!fecha.errors.required" class="alert alert-danger mt-2">
-              Obligatorio
-            </div>
-          </span>
-
+          <label for="form7" class="mt-2">Tipo de Emergencia</label>
           <input type="text" placeholder="Tipo de Emergencia" name="tipo_emergencia" class="form-control mt-2" 
           [(ngModel)]="editarEmger.tipo_emergencia" #sector="ngModel" minlength="2" maxlength="50"required
           >
 
+          <label for="form7" class="mt-2">Sector</label>
           <input type="text" placeholder="Sector" name="sector" class="form-control mt-2" 
           [(ngModel)]="editarEmger.sector" #sector="ngModel" minlength="2" maxlength="50"required
           >
@@ -70,6 +76,7 @@
             </div>
           </span>
 
+          <label ffor="form7" class="mt-2">Calle</label>
           <input type="text" placeholder="Calle" name="calle" class="form-control mt-2" 
           [(ngModel)]="editarEmger.calle" #calle="ngModel" minlength="3" maxlength="50"
           required
@@ -86,6 +93,7 @@
             </div>
           </span>
 
+          <label for="form7" class="mt-2">Punto o Lugar de Referencia</label>
           <input type="text" placeholder="Punto de Referencia" name="punto_referencia" class="form-control mt-2" 
           [(ngModel)]="editarEmger.punto_referencia" #punto_referencia="ngModel" minlength="3" maxlength="50"
           required
@@ -102,6 +110,7 @@
             </div>
           </span>
 
+          <label for="form7" class="mt-2">Nombre del Denunciante</label>
           <input type="text" placeholder="Nombre Denunciante" name="denunciante" class="form-control mt-2" 
           [(ngModel)]="editarEmger.denunciante" #denunciante="ngModel" minlength="3" maxlength="50"
           required
@@ -115,6 +124,7 @@
             </div>
           </span>
 
+          <label for="form7 " class="mt-2">Teléfono del Denunciante</label>
           <input type="text" placeholder="Telefono" name="telefono" class="form-control mt-2" 
           [(ngModel)]="editarEmger.telefono" #telefono="ngModel" minlength="9" maxlength="9"
           required ng-pattern="/^(\+?56)?(\s?)(0?9)(\s?)[98765]\d{7}$/>"
@@ -128,6 +138,12 @@
               </div>
           </span>
 
+            <div for="form7 " class="mt-2">
+              <label for="form7"class="mt-2" >Información Post Emergencia</label>
+              <textarea type="text" id="form7" name="postEmg" class="md-textarea md-textarea-auto form-control"
+               mdbInputDirective [(ngModel)]="editarEmger.postEmg" #postEmg="ngModel"></textarea>
+            </div>
+          
           <button class="btn btn-primary mt-3" [disabled]="!editarEmergenciaForm.valid" type="submit">Guardar Cambios</button>
         </form>
       </div>

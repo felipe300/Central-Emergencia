@@ -18,7 +18,8 @@ export class ListaEmergenciaComponent implements OnInit {
     denunciante: '',
     telefono: '',
     fecha:'',
-    hora:''
+    hora:'',
+    postEmg:''
   };
 
   constructor(private conexion: ConexionService) {
