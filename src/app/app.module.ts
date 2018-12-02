@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AgmCoreModule } from '@agm/core';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { HttpClientModule } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 
@@ -101,6 +102,7 @@ const routes: Routes = [
     MatTabsModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
+    HttpClientModule
   ],
   providers: [
     ConexionService,

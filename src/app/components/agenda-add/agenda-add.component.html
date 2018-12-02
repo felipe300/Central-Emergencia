@@ -82,6 +82,10 @@
                                                                         Maximo 50 caracteres
                                                                 </div>
                                                         </span>
+                                                        <div>
+                                                                <input type="file" (change)="onFileSelected($event)">
+                                                                <button type="button" (click)="onUpload()">Cargar Imagen</button>
+                                                        </div>
                                         
                                                         <button type="submit" class="btn btn-primary mt-3" [disabled]="!agendaAddForm.valid">Agregar a Agenda</button>
                                                 </div>

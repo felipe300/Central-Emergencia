@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   ingresarAplicacion() {
     this.authService.loginEmail(this.email, this.password)
     .then((res) => {
-      this.router.navigate(['/about']);
+      this.router.navigate(['/ggmaps']);
     }).catch((err) => {
       console.log(err);
       this.router.navigate(['/login']);
