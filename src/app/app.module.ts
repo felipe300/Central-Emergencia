@@ -49,6 +49,10 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
 
+// graficos
+import { ChartsModule } from 'ng2-charts';
+import { GraficosComponent } from './components/graficos/graficos.component';
+import { BarraComponent } from './components/barra/barra.component';
 
 // Routes
 const routes: Routes = [
@@ -59,6 +63,7 @@ const routes: Routes = [
   { path: 'emergencias', component: ListaEmergenciaComponent, canActivate: [AuthGuard] },
   { path: 'maquinas', component: MaquinasComponent, canActivate: [AuthGuard] },
   { path: 'cuarteles', component: CuartelesComponent, canActivate: [AuthGuard] },
+  { path: 'graficos', component: GraficosComponent, canActivate: [AuthGuard] },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 
 ];
@@ -82,6 +87,8 @@ const routes: Routes = [
     AgendaAddComponent,
     ListaAgendaComponent,
     EstadoMaquinaComponent,
+    GraficosComponent,
+    BarraComponent,
   ],
   imports: [
     BrowserModule,
@@ -102,7 +109,8 @@ const routes: Routes = [
     MatTabsModule,
     BrowserAnimationsModule,
     NoopAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [
     ConexionService,
