@@ -20,20 +20,17 @@
   <label for="form7" class="mt-2">Tipo de Máquina</label>
   <select (change)="selectedChangeHandler($event)" placeholder="Tipo de Máquina" name="tipo_maquina"
   class="form-control mt-2" [(ngModel)]="datosMaq.tipo_maquina" #tipo_maquina="ngModel" required>
-      <option value="2-0 Carro bomba">2-0 Carro bomba</option>
-      <option value="2-1 Carro portaescalas">2-1 Carro portaescalas</option>
-      <option value="2-2 Carro de rescate">2-2 Carro de rescate</option>
-      <option value="2-3 Ambulancia de bomberos">2-3 Ambulancia de bomberos</option>
-      <option value="2-4 Carro cisterna">2-4 Carro cisterna</option>
-      <option value="2-5 Carro Haz-Mat">2-5 Carro Haz-Mat</option>
-      <option value="2-6 Carro específico">2-6 Carro específico</option>
-      <option value="2-7 Mecánica telescópica">2-7 Mecánica telescópica</option>
-      <option value="2-8 Carro de transporte">2-8 Carro de transporte</option>
-      <option value="2-9 Brazo articulado hidráulico o snorkel">2-9 Brazo articulado hidráulico o snorkel</option>
-      <option value="2-10 Material mayor con motobomba">2-10 Material mayor con motobomba</option>
-      <option value="2-11 Material mayor con grupo electrógeno">2-11 Material mayor con grupo electrógeno</option>
-      <option value="2-12 Material mayor con cascada de aire comprimido">2-12 Material mayor con cascada de aire comprimido</option>
-      <option value="2-13 Despache al lugar un carro de rescate pesado">2-13 Despache al lugar un carro de rescate pesado</option>
+      <option value="Carro bomba">Carro bomba</option>
+      <option value="Carro portaescalas">Carro portaescalas</option>
+      <option value="Carro de rescate">Carro de rescate</option>
+      <option value="Ambulancia de bomberos">Ambulancia de bomberos</option>
+      <option value="Carro cisterna">Carro cisterna</option>
+      <option value="Carro Haz-Mat">Carro Haz-Mat</option>
+      <option value="Carro específico">Carro específico</option>
+      <option value="Mecánica telescópica">Mecánica telescópica</option>
+      <option value="Carro de transporte">Carro de transporte</option>
+      <option value="Brazo articulado hidráulico o snorkel">Brazo articulado hidráulico o snorkel</option>
+      
   </select>
   <span *ngIf="!tipo_maquina.valid && tipo_maquina.touched">
     <div [hidden]="!tipo_maquina.errors.required" class="alert alert-danger mt-2">

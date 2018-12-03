@@ -120,7 +120,7 @@
             <label for="form7" class="mt-2">Cambiar el Estado de la Máquina</label>
             <select (change)="selectedChangeHandler($event)" placeholder="Estado" name="estado"
             class="form-control mt-2" [(ngModel)]="editarMQ.estado">
-                <option value="En Espera" (click)="setColor('green')">En Espera</option>
+                <option value="En Cuartel" (click)="setColor('green')">En Cuartel</option>
                 <option value="En Emergencia" (click)="setColor('red')">En Emergencia</option>
                 <option value="En Taller" (click)="setColor('yellow')">En Taller</option>
             </select>
