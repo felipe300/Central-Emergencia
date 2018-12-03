@@ -73,20 +73,19 @@
                                                                 </div>
                                                         </span>
                                         
-                                                        <label for="form7" class="mt-2">Compañía</label>
-                                                        <input type="text" placeholder="Compania" name="compania" class="form-control mt-3"
-                                                        [(ngModel)]="datosAGD.compania" minlength="5" maxlength="50" #compania="ngModel" required>
-                                                        <span *ngIf="!compania.valid && compania.touched">
-                                                                <div [hidden]="!compania.errors.required" class="alert alert-danger mt-2">
-                                                                        Obligatorio
-                                                                </div>
-                                                                <div [hidden]="!compania.errors.minlength" class="alert alert-danger mt-2">
-                                                                        Minimo 3 caracteres
-                                                                </div>
-                                                                <div [hidden]="!compania.errors.maxlength" class="alert alert-danger mt-2">
-                                                                        Maximo 50 caracteres
-                                                                </div>
-                                                        </span>
+                                                        <label for="form7" class="mt-2">Compañía</label>      
+                                                                <select (change)="selectedChangeHandler($event)" placeholder="compania" name="compania"
+                                                                class="form-control mt-2" [(ngModel)]="emerg.tipo_emergencia" #compania="ngModel" required>
+                                                                    <option value="Primera Compañía">Primera Compañía</option>
+                                                                    <option value="Segunda Compañía">Segunda Compañía</option>
+                                                                    <option value="Tercera Compañía">Tercera Compañía</option>
+                                                                    <option value="Cuarta Compañía">Cuarta Compañía</option>
+                                                                    <option value="Quinta Compañía">Quinta Compañía</option>
+                                                                    <option value="Sexta Compañía">Sexta Compañía</option>
+                                                                    <option value="Séptima Compañía">Séptima Compañía</option>
+                                                                    <option value="Octava Compañía">Octava Compañía</option>
+                                                                    <option value="Novena Compañía">Novena Compañía</option>
+                                                                </select>
                                                         <div>
                                                                 <input type="file" (change)="onFileSelected($event)">
                                                                 <button type="button" (click)="onUpload()">Cargar Foto </button>

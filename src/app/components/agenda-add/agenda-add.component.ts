@@ -17,10 +17,9 @@ export class AgendaAddComponent implements OnInit {
     cargo: '',
     telefono: '',
     correo: '',
-    compania: ''
   }
 
-  
+  compania: string = '';
 
   constructor(private servicio: ConexionAgendaService) {
    }
@@ -35,7 +34,6 @@ export class AgendaAddComponent implements OnInit {
     this.datosAGD.cargo = '';
     this.datosAGD.telefono = '';
     this.datosAGD.correo = '';
-    this.datosAGD.compania = '';
   }
 
   //
@@ -51,5 +49,8 @@ export class AgendaAddComponent implements OnInit {
   onUpload() {
   }
   
+  selectedChangeHandler(event: any) {
+    this.compania = event.target.value;
+  }
 
 }
