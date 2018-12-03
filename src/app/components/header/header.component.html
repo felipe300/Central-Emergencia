@@ -1,5 +1,5 @@
 <!-- NavBar-->
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #FF532A;">
+<nav id="menustyle" class="navbar navbar-expand-lg navbar-dark" style="background-color: #FF532A;">
   <a class="navbar-brand" href="#">Inicio</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
     aria-expanded="false" aria-label="Toggle navigation">
@@ -14,25 +14,25 @@
         </a>
       </li> -->
       <li class="nav-item">
-        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/ggmaps']">Emergencias</a>
+        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/ggmaps']">EMERGENCIAS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/emergencias']">Lista de Emergencias</a>
+        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/emergencias']">LISTA DE EMERGENCIAS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/cuarteles']">Lista Cuarteles</a>
+        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/cuarteles']">CUARTELES</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/maquinas']">Lista de Máquinas</a>
+        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/maquinas']">MÁQUINAS</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/agenda']">Agenda</a>
+        <a class="nav-link" *ngIf="isLogin" [routerLink]="['/agenda']">AGENDA</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" *ngIf="isLogin" [routerLink]="['/graficos']">Gráficos</a>
+          <a class="nav-link" *ngIf="isLogin" [routerLink]="['/graficos']">GRÁFICOS</a>
         </li>
       <li class="nav-item">
-        <a class="nav-link" *ngIf="isLogin" (click)="onClicklogOut()" [routerLink]="['/login']">Cerrar Sesión
+        <a id="cerrar" class="nav-link" *ngIf="isLogin" (click)="onClicklogOut()" [routerLink]="['/login']">Cerrar Sesión
           <span class="sr-only">(current)</span>
         </a>
       </li>

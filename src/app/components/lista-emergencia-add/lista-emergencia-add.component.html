@@ -2,6 +2,7 @@
 <form (ngSubmit)="agregarEmergencia()" class="mt-3" #preEmergenciaForm="ngForm" novalidate >
   <div fxLayoutAlign="space-around center">
       <label for="form7" class="mt-2">Seleccionar el Tipo de Emergencia</label>
+     
       <select (change)="selectedChangeHandler($event)" placeholder="Tipo de Emergencia" name="tipo_emergencia"
       class="form-control mt-2" [(ngModel)]="emerg.tipo_emergencia">
           <option value="10-05 OTROS SERVICIOS">10-05 OTROS SERVICIOS</option>
@@ -59,11 +60,11 @@
           <option value="10-80-12 EMERGENCIA DE AERONAVE">10-80-12 EMERGENCIA DE AERONAVE</option>
       </select>
 
-      <label for="form7" class="mt-2">Punto de referencia más cercano</label>
-      <input type="text" placeholder="Punto de Referencia" name="punto_referencia"
+      <label for="form7" class="mt-2" >Punto de referencia más cercano</label>
+      <input type="text" style="position: relative;" placeholder="Punto de Referencia" name="punto_referencia"
       class="form-control mt-2" [(ngModel)]="emerg.punto_referencia" #punto_referencia="ngModel"
-      required minlength="3" maxlength="50"
-      >
+      required minlength="3" maxlength="50">
+  <div>
       <span *ngIf="!punto_referencia.valid && punto_referencia.touched">
         <div [hidden]="!punto_referencia.errors.minlength" class="alert alert-danger mt-2">
           Minimo 3 caracteres
@@ -77,6 +78,8 @@
         <div [hidden]="!preEmergenciaForm.valid.click" class="alert alert-success mt-2">
           Ok
         </div>
+      
       </span>
+    </div>
   </div>
 </form>

@@ -1,9 +1,11 @@
-<h1 class="mt-5">Lista de Emergencias</h1>
+<span><h3 class="mt-5">LISTA DE EMERGENCIAS
+</h3></span>
+<hr>
 
 <div class="mt-3"  *ngFor="let emg of items">
   <ul class="list-group mt-2">
     <li class="list-group-item">
-        {{emg.tipo_emergencia}}
+        TIPO DE EMERGENCIA: &nbsp;{{emg.tipo_emergencia}}
       <div class="float-right" (click)="eliminarEmg(emg)">
         <i class="fas fa-trash-alt"></i>
       </div>
@@ -11,14 +13,14 @@
         <i class="fas fa-pencil-alt"></i>
       </div>
     </li>
-    <li class="list-group-item">{{emg.fecha}}</li>
-    <li class="list-group-item">{{emg.hora}}</li>
-    <li class="list-group-item">{{emg.sector}}</li>
-    <li class="list-group-item">{{emg.calle}}</li>
-    <li class="list-group-item">{{emg.punto_referencia}}</li>
-    <li class="list-group-item">{{emg.denunciante}}</li>
-    <li class="list-group-item">{{emg.telefono}}</li>
-    <li class="list-group-item">{{emg.postEmg}}</li>
+    <li class="list-group-item">FECHA:&nbsp;{{emg.fecha}}</li>
+    <li class="list-group-item">HORA:&nbsp;{{emg.hora}}</li>
+    <li class="list-group-item">SECTOR:&nbsp;{{emg.sector}}</li>
+    <li class="list-group-item">CALLE:&nbsp;{{emg.calle}}</li>
+    <li class="list-group-item">PUNTO DE REFERENCIA:&nbsp;{{emg.punto_referencia}}</li>
+    <li class="list-group-item">DENUNCIANTE:&nbsp;{{emg.denunciante}}</li>
+    <li class="list-group-item">TELEFONO:&nbsp;{{emg.telefono}}</li>
+    <li class="list-group-item">PRE-INFORME:&nbsp;{{emg.postEmg}}</li>
   </ul>
 </div>
 

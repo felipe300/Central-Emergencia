@@ -4,8 +4,25 @@
 h3{
 text-align: center;
 padding-top: 2em;
+margin: 1 1 20px 0;
+font-weight: 600;
+font-size: 25px;
+color: #E14D13;
 
 }
+hr{
+    height: 2px;
+	width: 1000px;
+	text-align: center;
+	position: center;
+	background: #FFF300;
+;
+	margin: 0 auto;
+	margin-bottom: 20px;
+	border: 0;
+}
+
+
 #maps {
 margin-bottom: 1.0%;
 }
@@ -16,3 +33,4 @@ float: left;
 padding-top: 0%;
 
 }
+

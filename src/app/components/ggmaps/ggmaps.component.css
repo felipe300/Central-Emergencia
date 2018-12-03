@@ -6,3 +6,23 @@
 .form-group{
   width: 1000px;
 }
+h3{
+  text-align: center;
+  padding-top: 4%;
+  margin: 1 1 20px 0;
+  font-weight: 600;
+  font-size: 25 px;
+  color: #E14D13;
+  
+  }
+  hr{
+      height: 2px;
+    width: 1000px;
+    text-align: center;
+    position: center;
+    background: #FFF300;
+  ;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border: 0;
+  }
