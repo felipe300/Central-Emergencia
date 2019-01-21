@@ -9,7 +9,7 @@
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="agendaAddModalLabel"> Agregar a :{{}datosAGD.nombre}</h5>
+                      <h5 class="modal-title" id="agendaAddModalLabel"> Agregar a :{{datosAGD.nombre}}</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -75,7 +75,7 @@
                                         
                                                         <label for="form7" class="mt-2">Compañía</label>      
                                                                 <select (change)="selectedChangeHandler($event)" placeholder="compania" name="compania"
-                                                                class="form-control mt-2" [(ngModel)]="emerg.compania" #compania="ngModel" required>
+                                                                class="form-control mt-2" [(ngModel)]="datosAGD.compania" #compania="ngModel" required>
                                                                     <option value="Primera Compañía">Primera Compañía</option>
                                                                     <option value="Segunda Compañía">Segunda Compañía</option>
                                                                     <option value="Tercera Compañía">Tercera Compañía</option>

@@ -34,6 +34,7 @@ export class AgendaAddComponent implements OnInit {
     this.datosAGD.cargo = '';
     this.datosAGD.telefono = '';
     this.datosAGD.correo = '';
+    this.datosAGD.compania = '';
   }
 
   //
